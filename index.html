@@ -9,14 +9,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* --- GLOBAL STYLES --- */
+        /* --- GLOBAL STYLES & SAGE PALETTE --- */
+        :root {
+            --bg-body: #f4f7f4;          /* Very light sage */
+            --bg-sidebar: #e3e9e3;       /* Light sage */
+            --bg-nav-hover: #cfdacd;     /* Medium sage for hover */
+            --text-main: #333;
+            --text-header: #2f4f2f;      /* Dark Forest Green */
+            --accent-color: #557555;     /* Muted Green */
+            --border-color: #c1d1c1;
+            --white: #ffffff;
+        }
+
         body {
             font-family: 'Source Sans Pro', sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
-            background-color: #ffffff;
-            color: #333;
+            background-color: var(--bg-body);
+            color: var(--text-main);
             height: 100vh;
             overflow: hidden;
         }
@@ -28,8 +39,8 @@
         .sidebar {
             width: 260px;
             height: 100vh;
-            background-color: #fcfcfc;
-            border-right: 1px solid #eaeaea;
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
             padding: 40px 20px;
             display: flex;
             flex-direction: column;
@@ -41,18 +52,20 @@
             display: flex;
             align-items: center;
             padding: 12px 15px;
-            margin-bottom: 5px;
-            color: #555;
+            margin-bottom: 8px;
+            color: #4a5e4a;
             cursor: pointer;
             transition: all 0.2s ease;
-            border-radius: 4px;
+            border-radius: 6px;
             font-size: 1rem;
+            font-weight: 500;
         }
 
         .nav-item:hover, .nav-item.active {
-            color: #000;
-            background-color: #f0f0f0;
-            font-weight: 600;
+            color: #1a331a;
+            background-color: var(--bg-nav-hover);
+            font-weight: 700;
+            border-left: 4px solid var(--text-header);
         }
 
         .nav-item i {
@@ -61,11 +74,11 @@
             text-align: center;
         }
 
-        /* Submenu for Skills */
+        /* Submenu */
         .sub-menu {
             margin-left: 45px;
             margin-bottom: 10px;
-            border-left: 2px solid #eee;
+            border-left: 2px solid var(--border-color);
             padding-left: 10px;
         }
 
@@ -73,26 +86,28 @@
             display: block;
             padding: 5px 0;
             font-size: 0.9rem;
-            color: #777;
+            color: #667766;
             cursor: pointer;
             transition: color 0.2s;
         }
 
-        .sub-link:hover { color: #000; }
+        .sub-link:hover { color: #1a331a; font-weight: 600; }
 
-        /* --- MAIN CONTENT AREA (Right Side) --- */
+        /* --- MAIN CONTENT AREA --- */
         .main-content {
             flex-grow: 1;
             padding: 60px 80px;
             overflow-y: auto;
             height: 100vh;
             box-sizing: border-box;
+            background-color: var(--bg-body);
         }
 
         /* Sections hidden by default */
         .section {
             display: none;
-            animation: fadeIn 0.4s ease;
+            animation: fadeIn 0.5s ease;
+            max-width: 900px; /* Limit width for readability */
         }
 
         .section.active-section {
@@ -109,40 +124,158 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 10px;
-            color: #000;
+            color: var(--text-header);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
         }
 
         h2 {
             font-size: 1.5rem;
-            font-weight: 600;
+            font-weight: 400;
             margin-top: 0;
-            color: #444;
+            color: var(--accent-color);
         }
 
         h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-top: 30px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-top: 35px;
             margin-bottom: 10px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
+            color: var(--text-header);
+        }
+        
+        h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            margin-top: 15px;
+            color: #333;
         }
 
         p {
             line-height: 1.6;
-            color: #555;
+            color: #444;
             margin-bottom: 15px;
         }
 
-        /* Profile Photo Styling */
+        /* --- SPECIFIC SECTION STYLES --- */
+
+        /* Home/About Layout */
+        .intro-container {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            margin-top: 30px;
+        }
+
         .profile-photo {
-            max-width: 300px;
-            width: 100%;
+            width: 280px;
             height: auto;
-            display: block;
+            border: 5px solid var(--white);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+
+        .intro-text {
+            font-size: 1.25rem; /* Increased font size */
+            line-height: 1.8;
+            color: #2c3e2c;
+            font-weight: 400;
+        }
+
+        /* Education Badges */
+        .edu-badge {
+            display: inline-block;
+            background-color: var(--bg-nav-hover);
+            color: var(--text-header);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .edu-details {
+            margin-left: 20px;
+            border-left: 3px solid var(--border-color);
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+
+        /* Experience Achievement Block */
+        .achievement-box {
+            background-color: #fff;
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin-top: 10px;
             margin-bottom: 25px;
-            border: 1px solid #ccc;
-            border-radius: 0; /* Rectangular as requested */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .achievement-title {
+            font-weight: 700;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Awards Cards */
+        .award-card {
+            background-color: var(--white);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 6px solid var(--text-header);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .award-card:hover {
+            transform: translateX(5px);
+        }
+
+        .award-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-header);
+            margin-bottom: 5px;
+        }
+
+        /* List Styling */
+        .styled-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .styled-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 1.4rem;
+        }
+
+        /* Featured Buttons */
+        .btn-link {
+            display: inline-block;
+            margin-top: 5px;
+            padding: 8px 15px;
+            background-color: var(--text-header);
+            color: #fff;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .btn-link:hover {
+            background-color: var(--accent-color);
+            color: #fff;
         }
 
         /* Back Button */
@@ -150,7 +283,7 @@
             display: inline-flex;
             align-items: center;
             font-size: 0.85rem;
-            color: #888;
+            color: var(--accent-color);
             margin-bottom: 20px;
             cursor: pointer;
             text-transform: uppercase;
@@ -158,33 +291,23 @@
             font-weight: 600;
         }
         
-        .back-btn:hover { color: #000; }
+        .back-btn:hover { color: var(--text-header); }
 
-        /* List Styling */
-        .styled-list li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
-            line-height: 1.5;
-            color: #555;
-        }
-
-        .styled-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #333;
-            font-weight: bold;
-        }
-        
         /* Remove citations */
         cite, .numerical { display: none !important; }
 
         /* Responsive */
+        @media (max-width: 900px) {
+            .intro-container { flex-direction: column; align-items: center; text-align: center; }
+            .profile-photo { width: 220px; margin-bottom: 20px; }
+            .intro-text { text-align: left; }
+        }
+
         @media (max-width: 768px) {
             body { flex-direction: column; height: auto; overflow: auto; }
-            .sidebar { width: 100%; height: auto; padding: 20px; border-right: none; border-bottom: 1px solid #eee; }
-            .main-content { padding: 30px; height: auto; }
+            .sidebar { width: 100%; height: auto; padding: 15px; border-right: none; border-bottom: 1px solid var(--border-color); }
+            .main-content { padding: 30px 20px; height: auto; }
+            h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -192,10 +315,7 @@
 
     <nav class="sidebar">
         <div class="nav-item" onclick="showSection('home')">
-            <i class="fas fa-home"></i> Home
-        </div>
-        <div class="nav-item" onclick="showSection('about')">
-            <i class="fas fa-user"></i> About Me
+            <i class="fas fa-home"></i> Home & About
         </div>
         <div class="nav-item" onclick="showSection('education')">
             <i class="fas fa-graduation-cap"></i> Education
@@ -203,11 +323,11 @@
         <div class="nav-item" onclick="showSection('experience')">
             <i class="fas fa-briefcase"></i> Work Experience
         </div>
-        <div class="nav-item" onclick="showSection('mentoring')">
-            <i class="fas fa-users"></i> Mentoring
-        </div>
         <div class="nav-item" onclick="showSection('awards')">
             <i class="fas fa-award"></i> Awards
+        </div>
+        <div class="nav-item" onclick="showSection('mentoring')">
+            <i class="fas fa-users"></i> Mentoring
         </div>
         
         <div class="nav-item" onclick="showSection('skills')">
@@ -231,21 +351,19 @@
 
         <section id="home" class="section active-section">
             <h1>Ankita Swain</h1>
-            <h2 style="font-weight: 300; margin-bottom: 30px;">Corporate Finance Manager | Finance Business Partner</h2>
+            <h2 style="font-weight: 300; margin-bottom: 10px;">Corporate Finance Manager | Finance Business Partner</h2>
             
-            <img src="images/profile.jpg" alt="Ankita Swain" class="profile-photo">
-            
-            <p>Welcome to my professional portfolio. I am a finance professional with 7+ years of experience in Corporate Finance, M&A, and Financial Planning.</p>
-            <p>Select a section from the left to view my details.</p>
-        </section>
-
-        <section id="about" class="section">
-            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
-            <h1>About Me</h1>
-            <img src="images/profile.jpg" alt="Ankita Swain" class="profile-photo" style="width: 200px;">
-            <p>I am a finance professional with 7+ years of solid experience in Corporate Finance, M&A, and Financial Planning. I have worked with international and cross-functional teams in industries including Healthcare, Hi-Tech, Energy, Manufacturing, and Retail.</p>
-            <p>My expertise includes business development, process optimization, and stakeholder management across multiple levels.</p>
-            <p>I am passionate about disruptive technologies and financial blogging. I adhere to compliance frameworks such as IFRS, SOX, and US/UK/NL GAAP.</p>
+            <div class="intro-container">
+                <img src="images/profile.jpg" alt="Ankita Swain" class="profile-photo">
+                
+                <div class="intro-text">
+                    <p>I am a finance professional with 7+ years of solid experience in Corporate Finance, M&A, and Financial Planning. I have worked with international and cross-functional teams in industries including Healthcare, Hi-Tech, Energy, Manufacturing, and Retail.</p>
+                    
+                    <p>My expertise includes business development, process optimization, and stakeholder management across multiple levels.</p>
+                    
+                    <p>I am passionate about disruptive technologies and financial blogging. I adhere to compliance frameworks such as IFRS, SOX, and US/UK/NL GAAP.</p>
+                </div>
+            </div>
         </section>
 
         <section id="education" class="section">
@@ -253,19 +371,30 @@
             <h1>Education</h1>
             
             <h3>Symbiosis International University</h3>
-            <p><strong>Executive MBA (Finance)</strong> | 2016 – 2018</p>
-            <ul class="styled-list">
-                <li>Grade: 3.3/4 GPA</li>
-                <li>Activity: Class Representative (AY2016-17 to AY2017-18)</li>
-            </ul>
+            <p style="margin-bottom: 5px;"><strong>Executive MBA (Finance)</strong></p>
+            <p style="margin-top: 0; color: #666;">Academic Year 2016 – 2018</p>
+            
+            <div class="edu-details">
+                <div class="edu-badge">Grade: 3.3/4 GPA</div>
+                <ul class="styled-list" style="margin-top: 10px;">
+                    <li>Activity: Class Representative (Academic Year 2016-17 to Academic Year 2017-18)</li>
+                </ul>
+            </div>
 
             <h3>Utkal University</h3>
-            <p><strong>Bachelor of Arts, Economics</strong> | 2013 – 2016</p>
-            <ul class="styled-list">
-                <li>Grade: 3.28/4 GPA, First Class Honours With Distinction, Summa Cum Laude</li>
-                <li>Distinction: Rank 1 in Statistics</li>
-                <li>Activities: Member of Students Union, Anchor at Economic Seminars</li>
-            </ul>
+            <p style="margin-bottom: 5px;"><strong>Bachelor of Arts, Economics</strong></p>
+            <p style="margin-top: 0; color: #666;">2013 – 2016</p>
+            
+            <div class="edu-details">
+                <div class="edu-badge">Grade: 3.28/4 GPA</div>
+                <div class="edu-badge">First Class Honours With Distinction</div>
+                <div class="edu-badge">Summa Cum Laude</div>
+                <div class="edu-badge">Rank 1 in Statistics</div>
+                
+                <ul class="styled-list" style="margin-top: 15px;">
+                    <li>Activities: Member of Students Union, Anchor at Economic Seminars</li>
+                </ul>
+            </div>
         </section>
 
         <section id="experience" class="section">
@@ -281,6 +410,12 @@
                 <li>Ensure compliance, efficiency, and profitability across projects.</li>
                 <li>Partner with business heads to drive financial strategy and operational excellence.</li>
             </ul>
+            <div class="achievement-box">
+                <span class="achievement-title">Key Achievements</span>
+                (To be updated)
+            </div>
+
+            <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 30px 0;">
 
             <h4>Senior Executive (Aug 2020 - Dec 2023)</h4>
             <ul class="styled-list">
@@ -288,16 +423,81 @@
                 <li>Collaborated with cross-functional teams to optimize financial processes.</li>
                 <li>Led month-end closing activities and financial reporting.</li>
             </ul>
+            <div class="achievement-box">
+                <span class="achievement-title">Key Achievements</span>
+                (To be updated)
+            </div>
+
+            <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 30px 0;">
 
             <h4>Financial Analyst (June 2018 - July 2020)</h4>
             <ul class="styled-list">
                 <li>Supported financial planning and analysis (FP&A) activities.</li>
                 <li>Conducted revenue analysis and cost optimization studies.</li>
             </ul>
+            <div class="achievement-box">
+                <span class="achievement-title">Key Achievements</span>
+                (To be updated)
+            </div>
+
+            <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 30px 0;">
             
             <h4>Treasury Analyst Intern (Jan 2018 - May 2018)</h4>
             <ul class="styled-list">
                 <li>Assisted in treasury operations and cash flow management.</li>
+            </ul>
+            <div class="achievement-box">
+                <span class="achievement-title">Key Achievements</span>
+                (To be updated)
+            </div>
+        </section>
+
+        <section id="awards" class="section">
+            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
+            <h1>Awards & Recognitions</h1>
+            <p>Highlights of professional and academic excellence.</p>
+            
+            <div class="award-card">
+                <div class="award-title">Honour Badge</div>
+                <div style="font-size: 0.9rem; color: #666; margin-bottom: 5px;">June 2022</div>
+                Awarded for collaboration in O2C activities across sectors under Americas 2 Strategic Marketing Unit.
+            </div>
+
+            <div class="award-card">
+                <div class="award-title">Habit Flagbearer</div>
+                <div style="font-size: 0.9rem; color: #666; margin-bottom: 5px;">Jan 2022</div>
+                Awarded for ImpactPlayer, Achiever, and Thinker traits in securing Healthcare vertical targets.
+            </div>
+
+            <div class="award-card">
+                <div class="award-title">Inspiring Performance</div>
+                <div style="font-size: 0.9rem; color: #666; margin-bottom: 5px;">Sep 2021</div>
+                Awarded for ExtraMile, TeamPlayer, and OverTheTop traits in managing stakeholders.
+            </div>
+
+            <div class="award-card">
+                <div class="award-title">Academic Excellence</div>
+                <div style="font-size: 0.9rem; color: #666; margin-bottom: 5px;">Utkal University</div>
+                Rank 1 in Statistics.
+            </div>
+        </section>
+
+        <section id="mentoring" class="section">
+            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
+            <h1>Mentoring</h1>
+            
+            <h3>Education Mentor - Symbiosis International University</h3>
+            <p><strong>Jan 2022 - May 2022</strong></p>
+            <ul class="styled-list">
+                <li>Mentored Aayush Mehrotra (Junior candidate) on the dissertation project 'Revenue COE and pricing operations for Hi-Tech sector' at Wipro Limited.</li>
+            </ul>
+
+            <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 30px 0;">
+
+            <h3>Education Mentor - Symbiosis International University</h3>
+            <p><strong>Jan 2021 - May 2021</strong></p>
+            <ul class="styled-list">
+                <li>Mentored Harshil Vinchhi (Junior candidate) on the dissertation project 'Invoicing processes for fixed price contracts in Global Business Lines at Wipro Limited'.</li>
             </ul>
         </section>
 
@@ -331,49 +531,20 @@
             </ul>
         </section>
 
-        <section id="mentoring" class="section">
-            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
-            <h1>Mentoring</h1>
-            
-            <h3>Education Mentor - Symbiosis International University</h3>
-            <p><strong>Jan 2022 - May 2022</strong></p>
-            <ul class="styled-list">
-                <li>Mentored Aayush Mehrotra (Junior candidate) on the dissertation project 'Revenue COE and pricing operations for Hi-Tech sector' at Wipro Limited.</li>
-            </ul>
-
-            <h3>Education Mentor - Symbiosis International University</h3>
-            <p><strong>Jan 2021 - May 2021</strong></p>
-            <ul class="styled-list">
-                <li>Mentored Harshil Vinchhi (Junior candidate) on the dissertation project 'Invoicing processes for fixed price contracts in Global Business Lines at Wipro Limited'.</li>
-            </ul>
-        </section>
-
-        <section id="awards" class="section">
-            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
-            <h1>Awards & Recognitions</h1>
-            
-            <ul class="styled-list">
-                <li><strong>Honour Badge (Jun 2022):</strong> Awarded for collaboration in O2C activities across sectors under Americas 2 Strategic Marketing Unit.</li>
-                <li><strong>Habit Flagbearer (Jan 2022):</strong> Awarded for ImpactPlayer, Achiever, and Thinker traits in securing Healthcare vertical targets.</li>
-                <li><strong>Inspiring Performance (Sep 2021):</strong> Awarded for ExtraMile, TeamPlayer, and OverTheTop traits in managing stakeholders.</li>
-                <li><strong>Academic:</strong> Rank 1 in Statistics at Utkal University.</li>
-            </ul>
-        </section>
-
         <section id="featured" class="section">
             <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
             <h1>Featured Writing</h1>
             
-            <div style="margin-bottom: 25px;">
+            <div style="margin-bottom: 35px;">
                 <h3>Blockchain in Banking</h3>
                 <p>An analysis of how banks are utilizing the very technology meant to disrupt them.</p>
-                <a href="https://medium.com/vauld/banks-using-the-one-technology-that-should-disrupt-them-blockchain-371af586fa62" target="_blank" style="color: #0056b3; font-weight: 600;">Read on Medium <i class="fas fa-external-link-alt"></i></a>
+                <a href="https://medium.com/vauld/banks-using-the-one-technology-that-should-disrupt-them-blockchain-371af586fa62" target="_blank" class="btn-link">Read on Medium <i class="fas fa-external-link-alt"></i></a>
             </div>
 
             <div style="margin-bottom: 25px;">
                 <h3>Tether vs. US Dollars</h3>
                 <p>An exploration into why Tether is often preferred over traditional US Dollars in certain markets.</p>
-                <a href="https://medium.com/vauld/why-is-the-tether-preferred-over-us-dollars-5e5f818f6aa9" target="_blank" style="color: #0056b3; font-weight: 600;">Read on Medium <i class="fas fa-external-link-alt"></i></a>
+                <a href="https://medium.com/vauld/why-is-the-tether-preferred-over-us-dollars-5e5f818f6aa9" target="_blank" class="btn-link">Read on Medium <i class="fas fa-external-link-alt"></i></a>
             </div>
         </section>
 
