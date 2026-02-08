@@ -1,37 +1,55 @@
 /* Import Source Sans Pro */
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
 
 :root {
-    --sage-bg: #9CAF88; /* Matt Sage Finish */
-    --text-color: #2F3640;
-    --white-matt: #F5F6FA;
+    --sage-bg: #9CAF88; /* Sage Green Matt Finish */
+    --text-dark: #2F3640;
+    --sidebar-white: rgba(255, 255, 255, 0.15);
+    --card-white: rgba(255, 255, 255, 0.8);
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
     background-color: var(--sage-bg);
-    color: var(--text-color);
+    color: var(--text-dark);
     margin: 0;
     display: flex;
+    min-height: 100vh;
 }
 
-/* Sidebar Styling */
+/* Sidebar */
 .sidebar {
-    width: 300px;
-    background: rgba(255, 255, 255, 0.1); /* Subtle matt overlay */
-    height: 100vh;
-    padding: 20px;
+    width: 320px;
+    background: var(--sidebar-white);
+    padding: 40px 25px;
     position: fixed;
-    border-right: 1px solid rgba(0,0,0,0.1);
+    height: 100vh;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    overflow-y: auto;
 }
 
 .profile-pic {
     width: 100%;
-    max-width: 200px;
     height: auto; /* Proportionate size */
-    border: 2px solid var(--text-color);
+    border: 1px solid var(--text-dark);
     border-radius: 0; /* Rectangular border */
     margin-bottom: 20px;
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    margin: 10px 0 5px;
+    font-weight: 700;
+}
+
+.sidebar .title {
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
 }
 
 .sidebar nav ul {
@@ -40,15 +58,20 @@ body {
 }
 
 .sidebar nav ul li {
-    margin: 15px 0;
+    margin: 18px 0;
 }
 
 .sidebar nav ul li a {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--text-dark);
     font-weight: 600;
     display: flex;
     align-items: center;
+    transition: 0.3s;
+}
+
+.sidebar nav ul li a:hover {
+    padding-left: 10px;
 }
 
 .sidebar nav ul li i {
@@ -56,19 +79,49 @@ body {
     width: 20px;
 }
 
-/* Content Area */
+/* Main Content Area */
 .main-content {
-    margin-left: 350px;
-    padding: 50px;
-    width: 100%;
+    margin-left: 320px;
+    padding: 60px 80px;
+    width: calc(100% - 320px);
 }
 
 .back-btn {
     text-decoration: none;
-    color: var(--text-color);
-    font-size: 1.5rem;
-    display: block;
-    margin-bottom: 20px;
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 40px;
+    font-weight: 600;
 }
 
-h1, h2 { border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 10px; }
+.back-btn i {
+    margin-right: 10px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: 10px;
+    margin-top: 40px;
+}
+
+.content-block {
+    background: var(--card-white);
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    body { flex-direction: column; }
+    .sidebar { width: 100%; height: auto; position: relative; }
+    .main-content { margin-left: 0; width: 100%; padding: 40px 20px; }
+}
