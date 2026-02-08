@@ -1,65 +1,93 @@
+/* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
     margin: 0;
-    display: flex; /* This puts sidebar and content side-by-side */
-    background-color: #fff;
+    display: flex;
+    color: #1a1a1a;
+    background-color: #ffffff;
 }
 
-/* Sidebar Styling */
+/* Sidebar Styling - Left Vertical Block */
 .sidebar {
-    width: 280px;
+    width: 260px;
     height: 100vh;
-    border-right: 1px solid #eee;
-    padding: 40px 20px;
-    position: fixed; /* Keeps it on the left while you scroll */
-    background-color: #fcfcfc;
+    position: fixed;
+    left: 0;
+    top: 0;
+    border-right: 1px solid #e0e0e0;
+    padding: 40px 25px;
+    background-color: #f9f9f9;
+    overflow-y: auto;
 }
 
 .nav-item {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #333;
-    padding: 12px 0;
-    font-size: 1.1rem;
+    color: #444;
+    padding: 10px 0;
+    font-size: 1rem;
+    font-weight: 400;
     transition: 0.2s;
 }
 
 .nav-item i {
-    width: 30px;
-    color: #555;
+    width: 25px;
+    margin-right: 12px;
+    font-size: 1.1rem;
+    color: #333;
 }
 
-.nav-item:hover { color: #000; font-weight: 600; }
+.nav-item:hover {
+    color: #000;
+    font-weight: 600;
+}
 
 .sub-list {
-    list-style: none;
-    padding-left: 30px;
-    margin: 0 0 15px 0;
-}
-
-.sub-list li {
-    font-size: 0.95rem;
-    padding: 5px 0;
+    list-style: disc;
+    padding-left: 45px;
+    margin: -5px 0 15px 0;
     color: #666;
 }
 
-/* Main Content Area */
-.main-content {
-    margin-left: 320px; /* Moves content to the right of sidebar */
-    padding: 60px;
-    width: 100%;
+.sub-list li {
+    font-size: 0.9rem;
+    padding: 3px 0;
 }
 
-/* Photo Styling */
+/* Main Content Area - Right Side */
+.main-content {
+    margin-left: 310px; /* Offset for sidebar */
+    padding: 60px;
+    max-width: 900px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #888;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    transition: 0.3s;
+}
+
+.back-link:hover { color: #000; }
+
+h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 40px; }
+h3 { font-size: 1.4rem; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 30px; }
+
+/* Rectangular Images */
 img {
     max-width: 100%;
     height: auto;
-    border-radius: 0 !important; /* Forces rectangular shape */
+    border-radius: 0 !important;
     border: 1px solid #ddd;
 }
 
-/* Hide citations/numbers */
+/* Hide citations and numbers */
 cite, .numerical { display: none !important; }
