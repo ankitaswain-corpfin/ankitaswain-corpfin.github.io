@@ -1,43 +1,65 @@
-/* Import Source Sans Pro */
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
     margin: 0;
-    display: flex; /* Creates the side-by-side layout */
+    display: flex; /* This puts sidebar and content side-by-side */
+    background-color: #fff;
 }
 
-/* Image styling: Proportionate and Rectangular */
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 0 !important; /* Forces rectangular shape */
-    border: 1px solid #000;
-}
-
-/* Sidebar Layout */
-.left-block {
-    width: 250px;
+/* Sidebar Styling */
+.sidebar {
+    width: 280px;
     height: 100vh;
-    border-right: 1px solid #ccc;
-    padding: 20px;
-    position: fixed;
-}
-
-.content-area {
-    margin-left: 280px;
-    padding: 40px;
+    border-right: 1px solid #eee;
+    padding: 40px 20px;
+    position: fixed; /* Keeps it on the left while you scroll */
+    background-color: #fcfcfc;
 }
 
 .nav-item {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
     text-decoration: none;
-    color: #000;
+    color: #333;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    transition: 0.2s;
 }
 
 .nav-item i {
-    margin-right: 10px;
-    width: 20px;
+    width: 30px;
+    color: #555;
 }
+
+.nav-item:hover { color: #000; font-weight: 600; }
+
+.sub-list {
+    list-style: none;
+    padding-left: 30px;
+    margin: 0 0 15px 0;
+}
+
+.sub-list li {
+    font-size: 0.95rem;
+    padding: 5px 0;
+    color: #666;
+}
+
+/* Main Content Area */
+.main-content {
+    margin-left: 320px; /* Moves content to the right of sidebar */
+    padding: 60px;
+    width: 100%;
+}
+
+/* Photo Styling */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0 !important; /* Forces rectangular shape */
+    border: 1px solid #ddd;
+}
+
+/* Hide citations/numbers */
+cite, .numerical { display: none !important; }
