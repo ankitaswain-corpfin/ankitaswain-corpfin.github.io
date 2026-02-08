@@ -2,33 +2,419 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ankita Swain | Corporate Finance</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css"> </head>
+
+    <style>
+        /* --- GLOBAL STYLES --- */
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-color: #ffffff;
+            color: #333;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; padding: 0; }
+
+        /* --- SIDEBAR (Fixed Left) --- */
+        .sidebar {
+            width: 260px;
+            height: 100vh;
+            background-color: #fcfcfc;
+            border-right: 1px solid #eaeaea;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            overflow-y: auto;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            margin-bottom: 5px;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: #000;
+            background-color: #f0f0f0;
+            font-weight: 600;
+        }
+
+        .nav-item i {
+            width: 25px;
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        /* Submenu for Skills */
+        .sub-menu {
+            margin-left: 45px;
+            margin-bottom: 10px;
+            border-left: 2px solid #eee;
+            padding-left: 10px;
+        }
+
+        .sub-link {
+            display: block;
+            padding: 5px 0;
+            font-size: 0.9rem;
+            color: #777;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .sub-link:hover { color: #000; }
+
+        /* --- MAIN CONTENT AREA (Right Side) --- */
+        .main-content {
+            flex-grow: 1;
+            padding: 60px 80px;
+            overflow-y: auto;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Sections hidden by default */
+        .section {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .section.active-section {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- TYPOGRAPHY & ELEMENTS --- */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 0;
+            color: #444;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* Profile Photo Styling */
+        .profile-photo {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 25px;
+            border: 1px solid #ccc;
+            border-radius: 0; /* Rectangular as requested */
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .back-btn:hover { color: #000; }
+
+        /* List Styling */
+        .styled-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .styled-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        /* Remove citations */
+        cite, .numerical { display: none !important; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body { flex-direction: column; height: auto; overflow: auto; }
+            .sidebar { width: 100%; height: auto; padding: 20px; border-right: none; border-bottom: 1px solid #eee; }
+            .main-content { padding: 30px; height: auto; }
+        }
+    </style>
+</head>
 <body>
 
     <nav class="sidebar">
-        <a href="about.html" class="nav-item"><i class="fas fa-user"></i> About Me</a>
-        <a href="education.html" class="nav-item"><i class="fas fa-graduation-cap"></i> Education</a>
-        <a href="experience.html" class="nav-item"><i class="fas fa-briefcase"></i> Work Experience</a>
-        <a href="mentoring.html" class="nav-item"><i class="fas fa-users"></i> Mentoring</a>
-        <a href="awards.html" class="nav-item"><i class="fas fa-award"></i> Awards & Recognitions</a>
+        <div class="nav-item" onclick="showSection('home')">
+            <i class="fas fa-home"></i> Home
+        </div>
+        <div class="nav-item" onclick="showSection('about')">
+            <i class="fas fa-user"></i> About Me
+        </div>
+        <div class="nav-item" onclick="showSection('education')">
+            <i class="fas fa-graduation-cap"></i> Education
+        </div>
+        <div class="nav-item" onclick="showSection('experience')">
+            <i class="fas fa-briefcase"></i> Work Experience
+        </div>
+        <div class="nav-item" onclick="showSection('mentoring')">
+            <i class="fas fa-users"></i> Mentoring
+        </div>
+        <div class="nav-item" onclick="showSection('awards')">
+            <i class="fas fa-award"></i> Awards
+        </div>
         
-        <div class="nav-item"><i class="fas fa-tools"></i> Skills</div>
-        <ul class="sub-list">
-            <li>Technical Skills</li>
-            <li>Soft Skills</li>
-            <li>Core Competencies</li>
-        </ul>
+        <div class="nav-item" onclick="showSection('skills')">
+            <i class="fas fa-tools"></i> Skills
+        </div>
+        <div class="sub-menu">
+            <span class="sub-link" onclick="showSection('skills')">- Technical Skills</span>
+            <span class="sub-link" onclick="showSection('skills')">- Soft Skills</span>
+            <span class="sub-link" onclick="showSection('skills')">- Core Competencies</span>
+        </div>
 
-        <a href="featured.html" class="nav-item"><i class="fas fa-star"></i> Featured</a>
-        <a href="hobbies.html" class="nav-item"><i class="fas fa-heart"></i> Hobbies</a>
+        <div class="nav-item" onclick="showSection('featured')">
+            <i class="fas fa-star"></i> Featured
+        </div>
+        <div class="nav-item" onclick="showSection('hobbies')">
+            <i class="fas fa-heart"></i> Hobbies
+        </div>
     </nav>
 
     <main class="main-content">
-        <h1>Welcome</h1>
-        <p>Select a section from the left to learn more.</p>
-        <img src="images/your-photo.jpg" alt="Ankita Swain"> </main>
 
+        <section id="home" class="section active-section">
+            <h1>Ankita Swain</h1>
+            <h2 style="font-weight: 300; margin-bottom: 30px;">Corporate Finance Manager | Finance Business Partner</h2>
+            
+            <img src="images/profile.jpg" alt="Ankita Swain" class="profile-photo">
+            
+            <p>Welcome to my professional portfolio. I am a finance professional with 7+ years of experience in Corporate Finance, M&A, and Financial Planning.</p>
+            <p>Select a section from the left to view my details.</p>
+        </section>
+
+        <section id="about" class="section">
+            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
+            <h1>About Me</h1>
+            <img src="images/profile.jpg" alt="Ankita Swain" class="profile-photo" style="width: 200px;">
+            <p>I am a finance professional with 7+ years of solid experience in Corporate Finance, M&A, and Financial Planning. I have worked with international and cross-functional teams in industries including Healthcare, Hi-Tech, Energy, Manufacturing, and Retail.</p>
+            <p>My expertise includes business development, process optimization, and stakeholder management across multiple levels.</p>
+            <p>I am passionate about disruptive technologies and financial blogging. I adhere to compliance frameworks such as IFRS, SOX, and US/UK/NL GAAP.</p>
+        </section>
+
+        <section id="education" class="section">
+            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
+            <h1>Education</h1>
+            
+            <h3>Symbiosis International University</h3>
+            <p><strong>Executive MBA (Finance)</strong> | 2016 – 2018</p>
+            <ul class="styled-list">
+                <li>Grade: 3.3/4 GPA</li>
+                <li>Activity: Class Representative (AY2016-17 to AY2017-18)</li>
+            </ul>
+
+            <h3>Utkal University</h3>
+            <p><strong>Bachelor of Arts, Economics</strong> | 2013 – 2016</p>
+            <ul class="styled-list">
+                <li>Grade: 3.28/4 GPA, First Class Honours With Distinction, Summa Cum Laude</li>
+                <li>Distinction: Rank 1 in Statistics</li>
+                <li>Activities: Member of Students Union, Anchor at Economic Seminars</li>
+            </ul>
+        </section>
+
+        <section id="experience" class="section">
+            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
+            <h1>Work Experience</h1>
+
+            <h3>Wipro Limited</h3>
+            <p><em>Bengaluru, Karnataka, India</em></p>
+            
+            <h4>Business Finance Manager (Jan 2024 - June 2025)</h4>
+            <ul class="styled-list">
+                <li>Provide financial oversight and guidance for a government sector portfolio in the APMEA SMU.</li>
+                <li>Ensure compliance, efficiency, and profitability across projects.</li>
+                <li>Partner with business heads to drive financial strategy and operational excellence.</li>
+            </ul>
+
+            <h4>Senior Executive (Aug 2020 - Dec 2023)</h4>
+            <ul class="styled-list">
+                <li>Managed budgeting, forecasting, and variance analysis for key accounts.</li>
+                <li>Collaborated with cross-functional teams to optimize financial processes.</li>
+                <li>Led month-end closing activities and financial reporting.</li>
+            </ul>
+
+            <h4>Financial Analyst (June 2018 - July 2020)</h4>
+            <ul class="styled-list">
+                <li>Supported financial planning and analysis (FP&A) activities.</li>
+                <li>Conducted revenue analysis and cost optimization studies.</li>
+            </ul>
+            
+            <h4>Treasury Analyst Intern (Jan 2018 - May 2018)</h4>
+            <ul class="styled-list">
+                <li>Assisted in treasury operations and cash flow management.</li>
+            </ul>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
+            <h1>Skills</h1>
+
+            <h3>Technical Skills</h3>
+            <ul class="styled-list">
+                <li><strong>Utility Tools:</strong> MS Word, MS Excel, MS PowerPoint, MS Teams, G-Suite</li>
+                <li><strong>Data Analysis:</strong> Power BI, Power Pivot, Power Query</li>
+                <li><strong>ERP Systems:</strong> SAP, Workday, Netsuite</li>
+                <li><strong>CRM Tools:</strong> Salesforce, Informatica, Dynamics 365</li>
+                <li><strong>FP&A Tools:</strong> Anaplan, Wipro HOLMES, Netsuite F&A BPaaS</li>
+            </ul>
+
+            <h3>Core Competencies</h3>
+            <ul class="styled-list">
+                <li>Financial Analysis, Reporting, and Planning</li>
+                <li>Budgeting, Forecasting, and Cash Flow Management</li>
+                <li>Financial Modeling & Valuation</li>
+                <li>Risk Assessment & Capital Budgeting</li>
+                <li>Stakeholder Engagement & Corporate Governance</li>
+            </ul>
+
+            <h3>Soft Skills</h3>
+            <ul class="styled-list">
+                <li>Strategic Leadership & Critical Problem Solving</li>
+                <li>Compliance: IFRS, SOX, US/UK/NL GAAP</li>
+                <li>Technical Accounting: Closing and Accruals</li>
+            </ul>
+        </section>
+
+        <section id="mentoring" class="section">
+            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
+            <h1>Mentoring</h1>
+            
+            <h3>Education Mentor - Symbiosis International University</h3>
+            <p><strong>Jan 2022 - May 2022</strong></p>
+            <ul class="styled-list">
+                <li>Mentored Aayush Mehrotra (Junior candidate) on the dissertation project 'Revenue COE and pricing operations for Hi-Tech sector' at Wipro Limited.</li>
+            </ul>
+
+            <h3>Education Mentor - Symbiosis International University</h3>
+            <p><strong>Jan 2021 - May 2021</strong></p>
+            <ul class="styled-list">
+                <li>Mentored Harshil Vinchhi (Junior candidate) on the dissertation project 'Invoicing processes for fixed price contracts in Global Business Lines at Wipro Limited'.</li>
+            </ul>
+        </section>
+
+        <section id="awards" class="section">
+            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
+            <h1>Awards & Recognitions</h1>
+            
+            <ul class="styled-list">
+                <li><strong>Honour Badge (Jun 2022):</strong> Awarded for collaboration in O2C activities across sectors under Americas 2 Strategic Marketing Unit.</li>
+                <li><strong>Habit Flagbearer (Jan 2022):</strong> Awarded for ImpactPlayer, Achiever, and Thinker traits in securing Healthcare vertical targets.</li>
+                <li><strong>Inspiring Performance (Sep 2021):</strong> Awarded for ExtraMile, TeamPlayer, and OverTheTop traits in managing stakeholders.</li>
+                <li><strong>Academic:</strong> Rank 1 in Statistics at Utkal University.</li>
+            </ul>
+        </section>
+
+        <section id="featured" class="section">
+            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
+            <h1>Featured Writing</h1>
+            
+            <div style="margin-bottom: 25px;">
+                <h3>Blockchain in Banking</h3>
+                <p>An analysis of how banks are utilizing the very technology meant to disrupt them.</p>
+                <a href="https://medium.com/vauld/banks-using-the-one-technology-that-should-disrupt-them-blockchain-371af586fa62" target="_blank" style="color: #0056b3; font-weight: 600;">Read on Medium <i class="fas fa-external-link-alt"></i></a>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <h3>Tether vs. US Dollars</h3>
+                <p>An exploration into why Tether is often preferred over traditional US Dollars in certain markets.</p>
+                <a href="https://medium.com/vauld/why-is-the-tether-preferred-over-us-dollars-5e5f818f6aa9" target="_blank" style="color: #0056b3; font-weight: 600;">Read on Medium <i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </section>
+
+        <section id="hobbies" class="section">
+            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
+            <h1>Hobbies</h1>
+            <ul class="styled-list">
+                <li><strong>Reading:</strong> Founder/Host of ‘Baby Blue Book Club’. Started with 2 members, grew to 30+ members. We discuss books and recommendations.</li>
+                <li><strong>Blogging:</strong> Financial Blogging & Fashion/Lifestyle blogging on Instagram.</li>
+                <li><strong>Workout & Sports:</strong> Regular Yoga practitioner and Hiking enthusiast.</li>
+                <li><strong>Cooking:</strong> Specializing in Indo-Chinese dishes.</li>
+                <li><strong>Writing:</strong> Aspiring Novelist, currently writing a YA Fantasy.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <script>
+        function showSection(sectionId) {
+            // 1. Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active-section');
+            });
+
+            // 2. Show the selected section
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.classList.add('active-section');
+            }
+
+            // 3. Update Sidebar Active State
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                // Check if this nav item's onclick matches the sectionId
+                if (item.getAttribute('onclick').includes(sectionId)) {
+                    item.classList.add('active');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
