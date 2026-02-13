@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ankita Swain | Corporate Finance</title>
+    <title>Ankita Swain | Portfolio</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -16,9 +16,9 @@
             --bg-nav-hover: #cbdccb;
             --text-main: #2c3e2c;
             --text-header: #1f3b1f;
-            --accent-color: #4a6b4a;
-            --border-color: #aebfae;
-            --dark-sage-border: #2f4f2f; 
+            --accent-sage: #4a6b4a;
+            --border-sage: #aebfae;
+            --dark-sage: #2f4f2f;
             --white: #ffffff;
         }
 
@@ -37,7 +37,7 @@
             width: 270px;
             height: 100vh;
             background-color: var(--bg-sidebar);
-            border-right: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-sage);
             padding: 40px 20px;
             display: flex;
             flex-direction: column;
@@ -54,13 +54,14 @@
             border-radius: 8px;
             font-size: 1.05rem;
             transition: 0.2s;
+            color: var(--text-main);
         }
 
         .nav-item:hover { background-color: var(--bg-nav-hover); }
         .nav-item.active {
             background-color: var(--bg-nav-active);
             font-weight: 700;
-            border-left: 5px solid var(--text-header);
+            border-left: 5px solid var(--dark-sage);
         }
 
         .nav-item i { width: 25px; margin-right: 10px; }
@@ -70,148 +71,209 @@
             flex-grow: 1;
             padding: 60px 90px;
             overflow-y: auto;
+            scroll-behavior: smooth;
         }
 
-        .section { display: none; max-width: 950px; animation: fadeIn 0.4s; }
+        .section { display: none; max-width: 1000px; animation: fadeIn 0.4s ease-out; }
         .section.active-section { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        h1 { font-size: 2.5rem; color: var(--text-header); border-bottom: 3px solid var(--border-color); padding-bottom: 10px; }
-        h3 { color: var(--text-header); margin-top: 30px; }
+        h1 { font-size: 2.8rem; color: var(--text-header); margin-bottom: 30px; border-bottom: 2px solid var(--border-sage); padding-bottom: 10px; }
+        h3 { color: var(--text-header); margin-top: 35px; border-left: 4px solid var(--accent-sage); padding-left: 15px; }
         
-        /* Home & About Specific (11pt + Borders) */
-        .text-11pt p { font-size: 11pt; line-height: 1.6; margin: 0; padding: 15px 0; border-bottom: 1.5px solid var(--dark-sage-border); }
-        .text-11pt p:last-child { border-bottom: none; }
+        /* AESTHETIC TEXT BOXES (Sage Outlines) */
+        .content-box {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1.5px solid var(--border-sage);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
 
-        /* Hobbies Specific (12pt + Aesthetic Boxes) */
+        /* Home & About (11pt) */
+        .text-11pt { font-size: 11pt; }
+        
+        /* Home Specific Layout */
+        .home-layout { display: flex; gap: 40px; align-items: flex-start; }
+        .profile-img { 
+            width: 280px; 
+            border-radius: 15px; 
+            border: 6px solid var(--white); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Hobbies Grid (12pt) */
         .hobbies-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            margin-top: 20px;
             font-size: 12pt;
         }
-
-        .hobby-box {
+        .hobby-card {
             background: var(--white);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            transition: transform 0.2s;
+            border: 1px solid var(--border-sage);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: 0.3s;
         }
-        .hobby-box:hover { transform: translateY(-5px); border-color: var(--accent-color); }
-        .hobby-box strong { color: var(--text-header); display: block; margin-bottom: 8px; font-size: 1.1rem; }
+        .hobby-card:hover { transform: translateY(-5px); border-color: var(--dark-sage); }
+        .hobby-card strong { color: var(--dark-sage); font-size: 1.2rem; display: block; margin-bottom: 10px; }
 
-        .styled-list li { margin-bottom: 10px; position: relative; padding-left: 25px; list-style: none; }
-        .styled-list li::before { content: "\f058"; font-family: "Font Awesome 5 Free"; font-weight: 900; position: absolute; left: 0; color: var(--accent-color); }
-        .award-card { background: white; padding: 20px; margin-bottom: 15px; border-radius: 8px; border-left: 5px solid #e0c060; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .styled-list li { margin-bottom: 12px; position: relative; padding-left: 30px; list-style: none; }
+        .styled-list li::before { 
+            content: "\f00c"; font-family: "Font Awesome 5 Free"; font-weight: 900; 
+            position: absolute; left: 0; color: var(--accent-sage); 
+        }
+
+        .btn-link { 
+            display: inline-block; padding: 12px 20px; background: var(--dark-sage); 
+            color: white; border-radius: 8px; margin-top: 10px; 
+        }
     </style>
 </head>
 <body>
 
     <nav class="sidebar">
         <div class="nav-item active" onclick="showSection('home')"><i class="fas fa-home"></i> Home</div>
-        <div class="nav-item" onclick="showSection('about')"><i class="fas fa-user-tie"></i> About Me</div>
+        <div class="nav-item" onclick="showSection('about')"><i class="fas fa-user-circle"></i> About Me</div>
         <div class="nav-item" onclick="showSection('experience')"><i class="fas fa-briefcase"></i> Work Experience</div>
-        <div class="nav-item" onclick="showSection('education')"><i class="fas fa-graduation-cap"></i> Education</div>
-        <div class="nav-item" onclick="showSection('mentoring')"><i class="fas fa-chalkboard-teacher"></i> Mentoring</div>
-        <div class="nav-item" onclick="showSection('awards')"><i class="fas fa-trophy"></i> Awards</div>
-        <div class="nav-item" onclick="showSection('skills')"><i class="fas fa-cog"></i> Skills</div>
-        <div class="nav-item" onclick="showSection('featured')"><i class="fas fa-star"></i> Featured</div>
+        <div class="nav-item" onclick="showSection('education')"><i class="fas fa-university"></i> Education</div>
+        <div class="nav-item" onclick="showSection('mentoring')"><i class="fas fa-hands-helping"></i> Mentoring</div>
+        <div class="nav-item" onclick="showSection('awards')"><i class="fas fa-award"></i> Awards</div>
+        <div class="nav-item" onclick="showSection('skills')"><i class="fas fa-tools"></i> Skills</div>
+        <div class="nav-item" onclick="showSection('featured')"><i class="fas fa-newspaper"></i> Featured</div>
         <div class="nav-item" onclick="showSection('hobbies')"><i class="fas fa-heart"></i> Hobbies</div>
     </nav>
 
     <main class="main-content">
         <section id="home" class="section active-section text-11pt">
             <h1>Home</h1>
-            <p>If there’s one constant in my life, it’s that I am always in the middle of a story, sometimes reading it, sometimes writing it and often accidentally living it.</p>
-            <p>By day, I work with numbers and narratives of a very practical kind like cash flows, forecasts, the quiet drama of decisions on a balance sheet. By night and most weekends, I trade spreadsheets for stories. I host Baby Blue Book Club, a small experiment that started with two friends and has grown into a cozy, opinionated corner of the internet where thirty-plus readers and a few hundred lurkers argue lovingly about books.</p>
-            <p>When I’m not talking about stories, I’m usually consuming them in sitcoms, crime thrillers, horror movies, or the YA fantasy novel I’m slowly, stubbornly writing. I cook Indo‑Chinese food for comfort, unroll my yoga mat for sanity, and blog about money, fashion, and literature because I like my worlds a little bit mixed, logic with aesthetics, discipline with daydreaming and intentions with actions.</p>
+            <div class="home-layout">
+                <img src="images/profile.jpg" alt="Ankita Swain" class="profile-img">
+                <div>
+                    <div class="content-box">If there’s one constant in my life, it’s that I am always in the middle of a story, sometimes reading it, sometimes writing it and often accidentally living it.</div>
+                    <div class="content-box">By day, I work with numbers and narratives of a very practical kind like cash flows, forecasts, the quiet drama of decisions on a balance sheet. By night and most weekends, I trade spreadsheets for stories. I host Baby Blue Book Club, a small experiment that started with two friends and has grown into a cozy, opinionated corner of the internet where thirty-plus readers and a few hundred lurkers argue lovingly about books.</div>
+                    <div class="content-box">When I’m not talking about stories, I’m usually consuming them in sitcoms, crime thrillers, horror movies, or the YA fantasy novel I’m slowly, stubbornly writing. I cook Indo‑Chinese food for comfort, unroll my yoga mat for sanity, and blog about money, fashion, and literature because I like my worlds a little bit mixed, logic with aesthetics, discipline with daydreaming and intentions with actions.</div>
+                </div>
+            </div>
         </section>
 
         <section id="about" class="section text-11pt">
             <h1>About Me</h1>
-            <p>A finance professional with 7+ years of solid experience in Corporate Finance, M&A, and Financial Planning, working with international and cross-functional teams. Skilled in business development, process optimization, and stakeholder management across multiple levels.</p>
-            <p>As a Business Finance Manager, my key responsibilities & achievements are as below:</p>
-            <p>Over a span of 7 years, worked in a variety of industries including Healthcare, Hi-Tech, Energy, Manufacturing & Retail.</p>
-            <p>Worked in the APMEA SMU (Asia Pacific, Middle East, ANZ Strategic Marketing Unit) to provide financial oversight and guidance for a government sector portfolio, ensuring compliance, efficiency, and profitability.</p>
-            <p>Adhered to compliance frameworks such as IFRS, EU-IFRS, SOX, US, UK & NL GAAP. Mentored and managed a team of financial analysts.</p>
-            <p>I'm passionate about corporate finance, financial blogging, mentoring and disruptive technologies that change the way we work, with a strong interest in global and regional markets and cultural experiences.</p>
+            <div class="content-box">A finance professional with 7+ years of solid experience in Corporate Finance, M&A, and Financial Planning, working with international and cross-functional teams. Skilled in business development, process optimization, and stakeholder management across multiple levels.</div>
+            <div class="content-box">As a Business Finance Manager, my key responsibilities & achievements are as below:</div>
+            <div class="content-box">Over a span of 7 years, worked in a variety of industries including Healthcare, Hi-Tech, Energy, Manufacturing & Retail.</div>
+            <div class="content-box">Worked in the APMEA SMU (Asia Pacific, Middle East, ANZ Strategic Marketing Unit) to provide financial oversight and guidance for a government sector portfolio, ensuring compliance, efficiency, and profitability.</div>
+            <div class="content-box">Adhered to compliance frameworks such as IFRS, EU-IFRS, SOX, US, UK & NL GAAP. Mentored and managed a team of financial analysts.</div>
+            <div class="content-box">I'm passionate about corporate finance, financial blogging, mentoring and disruptive technologies that change the way we work, with a strong interest in global and regional markets and cultural experiences.</div>
             <p>Feel free to contact me.</p>
         </section>
 
         <section id="experience" class="section">
             <h1>Work Experience</h1>
-            <p><strong>Company Name:</strong> Wipro limited<br><strong>Location:</strong> Bengaluru, Karnataka, India<br><strong>Experience:</strong> 7 years, 1 month</p>
+            <div class="content-box">
+                <strong>Company Name:</strong> Wipro limited | <strong>Location:</strong> Bengaluru, Karnataka, India<br>
+                <strong>Experience:</strong> 7 years, 1 month
+            </div>
             <h3>Financial Analyst - Sector Business Finance Manager (Jun 2018- Jun 2025)</h3>
             <ul class="styled-list">
-                <li>Partnered with Senior Leaders in the APMEA SMU to provide financial oversight and guidance for a government sector portfolio.</li>
-                <li>Led end-to-end cash flow forecasting and budgeting, correcting variances across 2 consecutive quarters.</li>
-                <li>Partnered with Operations, Sales, Delivery and Investment team to identify high-risk government customers, reducing forecast volatility by >30%.</li>
-                <li>Designed milestone-based invoicing for a 5-year Tamil Nadu Treasury renewal, eliminating negative cash-flow months.</li>
-                <li>Resolved 7+ months of overdue receivables for Telangana State account through targeted stakeholder engagement.</li>
-                <li>Collaborated across global stakeholders (US, UK, Europe, ME, Russia) to standardize financial processes using SOPs and automation.</li>
+                <li>Partnered with Senior Leaders in the APMEA SMU (Asia Pacific, Middle East, ANZ Strategic Marketing Unit) to provide financial oversight and guidance for a government sector portfolio,ensuring compliance, efficiency, and profitability.</li>
+                <li>Led end-to-end cash flow forecasting and budgeting for complex APMEA public sector accounts, correcting forecast variances across 2 consecutive quarters and restoring CFO confidence in outlook accuracy through strengthened controls and scenario modeling.</li>
+                <li>Partnered with Operations, Sales, Delivery and Investment team to proactively identify high-risk government customers, including collaboration with anti-corruption task force inputs, reducing forecast volatility and preventing revenue exposure on sensitive PSU deals by >30%.</li>
+                <li>Designed and executed revised billing and payout structures for a 5-year Tamil Nadu Treasury renewal, introducing milestone-based invoicing and staggered vendor payouts across 20+ suppliers, eliminating negative cash-flow months while securing contract renewal.</li>
+                <li>Monitored cost structures, unit economics for state-wide rollouts linking milestone based billing & vendor payout terms to project CAPEX.</li>
+                <li>Resolved 7+ months of overdue receivables for Telangana State account through targeted stakeholder engagement and sales partnership, accelerating collections without relationship escalation and creating opportunity for upfront-payment renewal terms.</li>
+                <li>Integrated multi-source financial, operational, and risk data into clear executive narratives, enabling leadership decision-making through concise storytelling, variance drivers, and actionable recommendations during monthly and quarterly reviews.</li>
+                <li>Collaborated across global stakeholders (US, UK, Europe, ME, Russia) to standardize financial processes and reporting using SOPs and automation tools, improving cross-region forecast consistency and reducing rework by ~25%.</li>
+                <li>Applied advanced financial modeling and scenario analysis to public-sector and SMB deals, aligning pricing, investment decisions, and risk appetite with corporate strategy while supporting sustainable growth across regulated markets.</li>
                 <li>Led a team of 4 financial analysts, fostering high performance and career growth.</li>
             </ul>
         </section>
 
         <section id="education" class="section">
             <h1>Education</h1>
-            <h3>SYMBIOSIS INTERNATIONAL UNIVERSITY</h3>
-            <p>Executive MBA (Finance) | 2016 – 2018 | Grade: 3.3/4 GPA</p>
-            <p><em>Activities: Class Representative (AY2016-17 To AY2017-18)</em></p>
-            <hr>
-            <h3>Utkal University</h3>
-            <p>BA, Economics | 2013 – 2016 | Grade: 3.28/4 GPA</p>
-            <p>Rank 1 in Statistics, First Class Honours With Distinction, Summa Cum Laude</p>
-            <p>Studied Micro/Macro Economics, Statistics, International Trade, and Mathematical Economics. Thesis in Income Inequality.</p>
+            <div class="content-box">
+                <h3>SYMBIOSIS INTERNATIONAL UNIVERSITY</h3>
+                <p>Executive MBA (Finance), Finance, General | 2016 – 2018<br>
+                <strong>Grade:</strong> 3.3/4 GPA<br>
+                <em>Activities: Class Representative (AY2016-17 To AY2017-18)</em></p>
+            </div>
+            <div class="content-box">
+                <h3>Utkal University</h3>
+                <p>Bachelor of Arts - BA, Economics | 2013 – 2016<br>
+                <strong>Grade:</strong> 3.28/4 GPA, Rank 1 in Statistics, First Class Honours With Distinction, Summa Cum Laude</p>
+                <ul class="styled-list">
+                    <li>Studied Micro Economics, Macro Economics (1st Year)</li>
+                    <li>Statistics (2nd Year)</li>
+                    <li>International Trade, Mathematical Economics (3rd Year)</li>
+                    <li>Seminar Project on Foreign Direct Investments in India</li>
+                    <li>Bachelor's thesis in Income Inequality</li>
+                </ul>
+            </div>
         </section>
 
         <section id="mentoring" class="section">
             <h1>Mentoring</h1>
-            <div class="award-card">
-                <strong>Education Mentor - SIU (Jan 2022 - May 2022)</strong>
-                <p>Mentored junior candidates on 'Revenue COE and pricing operations for Hi-Tech sector' at Wipro limited.</p>
+            <div class="content-box">
+                <strong>Education Mentor - SIU (Jan 2022 - May 2022)</strong><br>
+                Mentored Aayush Mehrotra on 'Revenue COE and pricing operations for Hi-Tech sector' at Wipro limited.
             </div>
-            <div class="award-card">
-                <strong>Education Mentor - SIU (Jan 2021 - May 2021)</strong>
-                <p>Mentored junior candidates on 'Invoicing processes for fixed price contracts' at Wipro limited.</p>
+            <div class="content-box">
+                <strong>Education Mentor - SIU (Jan 2021 - May 2021)</strong><br>
+                Mentored Harshil Vinchhi on 'Invoicing processes for fixed price contracts' at Wipro limited.
             </div>
         </section>
 
         <section id="awards" class="section">
             <h1>Awards & Recognitions</h1>
-            <div class="award-card"><h4>Honour Badge (Jun 2022)</h4><p>Awarded for collaboration in O2C activities under Americas 2 SMU.</p></div>
-            <div class="award-card"><h4>Habit Flagbearer (Jan 2022)</h4><p>Awarded for ImpactPlayer, Achiever, and Thinker traits in Healthcare.</p></div>
-            <div class="award-card"><h4>Inspiring Performance (Sep 2021)</h4><p>Awarded for ExtraMile and TeamPlayer traits.</p></div>
+            <div class="content-box">
+                <strong>Honour Badge (Jun 2022)</strong><br>
+                Awarded internally for collaboration in O2C activities across sectors under Americas 2 SMU.
+            </div>
+            <div class="content-box">
+                <strong>Habit Flagbearer (Jan 2022)</strong><br>
+                Awarded for ImpactPlayer, Achiever, Thinker traits in Healthcare.
+            </div>
+            <div class="content-box">
+                <strong>Inspiring Performance (Sep 2021)</strong><br>
+                Awarded for ExtraMile, TeamPlayer, OverTheTop traits.
+            </div>
         </section>
 
         <section id="skills" class="section">
             <h1>Skills</h1>
-            <h3>Technical Skills</h3>
-            <p>MS Excel (Power Query/Pivot), SAP, Workday, Netsuite, Salesforce, Dynamics 365, Anaplan.</p>
-            <h3>Core Competencies</h3>
-            <p>Financial Analysis, Forecasting, M&A, P&L Management, Stakeholder Engagement, Corporate Governance.</p>
-            <h3>Soft Skills</h3>
-            <p>IFRS, US/UK/NL GAAP, SOX, COSO, Group Reporting.</p>
+            <div class="content-box">
+                <strong>Technical Skills:</strong> MS Excel, SAP, Workday, Netsuite, Salesforce, Power BI, Anaplan, Generative AI Level 1 & 2.
+            </div>
+            <div class="content-box">
+                <strong>Core Competencies:</strong> Financial Analysis, Budgeting, M&A, P&L Management, Stakeholder Engagement, Corporate Governance.
+            </div>
+            <div class="content-box">
+                <strong>Soft Skills:</strong> IFRS, US/UK/NL GAAP, SOX, COSO, Technical Accounting.
+            </div>
         </section>
 
         <section id="featured" class="section">
             <h1>Featured</h1>
-            <p><a href="https://medium.com/vauld/banks-using-the-one-technology-that-should-disrupt-them-blockchain-371af586fa62" target="_blank">Blockchain in Banking (Medium)</a></p>
-            <p><a href="https://medium.com/vauld/why-is-the-tether-preferred-over-us-dollars-5e5f818f6aa9" target="_blank">Tether vs US Dollars (Medium)</a></p>
+            <div class="content-box">
+                <a href="https://medium.com/vauld/banks-using-the-one-technology-that-should-disrupt-them-blockchain-371af586fa62" target="_blank" class="btn-link">Blockchain in Banking</a>
+            </div>
+            <div class="content-box">
+                <a href="https://medium.com/vauld/why-is-the-tether-preferred-over-us-dollars-5e5f818f6aa9" target="_blank" class="btn-link">Tether vs US Dollars</a>
+            </div>
         </section>
 
         <section id="hobbies" class="section">
             <h1>Hobbies</h1>
             <div class="hobbies-grid">
-                <div class="hobby-box"><strong>Reading</strong>Founder/Host of ‘Baby Blue Book Club’, a non-traditional book club where members meet on a decided Sunday evening to discuss books, reading habits and recommendations on Google hangout, post on instagram to increase visibility, reading list and marketing which started with 2 members and currently it has more than 30 members in 3 years and over 400 followers on Instagram.</div>
-                <div class="hobby-box"><strong>Workout & Sports</strong>Hiking (as and when time permits) & Yoga (Regularly)</div>
-                <div class="hobby-box"><strong>Cooking</strong>Cooking Indo-Chinese dishes in my leisure</div>
-                <div class="hobby-box"><strong>Blogging</strong>Financial Blogging on Medium & Fashion and Literature blogging on Instagram and Substack</div>
-                <div class="hobby-box"><strong>Entertainment</strong>Watching Sitcoms, Crime Thrillers and Horror movies</div>
-                <div class="hobby-box"><strong>Writing</strong>Aspiring Novelist, writing a Young Adult (YA) Fantasy</div>
+                <div class="hobby-card"><strong>Reading</strong>Founder/Host of ‘Baby Blue Book Club’, a non-traditional book club where members meet on a decided Sunday evening to discuss books, reading habits and recommendations on Google hangout, post on instagram to increase visibility, reading list and marketing which started with 2 members and currently it has more than 30 members in 3 years and over 400 followers on Instagram.</div>
+                <div class="hobby-card"><strong>Workout & Sports</strong>Hiking (as and when time permits) & Yoga (Regularly)</div>
+                <div class="hobby-card"><strong>Cooking</strong>Cooking Indo-Chinese dishes in my leisure</div>
+                <div class="hobby-card"><strong>Blogging</strong>Financial Blogging on Medium & Fashion and Literature blogging on Instagram and Substack</div>
+                <div class="hobby-card"><strong>Entertainment</strong>Watching Sitcoms, Crime Thrillers and Horror movies</div>
+                <div class="hobby-card"><strong>Writing</strong>Aspiring Novelist, writing a Young Adult (YA) Fantasy</div>
             </div>
         </section>
     </main>
