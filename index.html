@@ -11,7 +11,6 @@
     <style>
         /* --- GLOBAL STYLES & SAGE PALETTE --- */
         :root {
-            /* Palette Breakdown for distinction */
             --bg-body: #f4f7f4;          /* Main Content: Very Pale Sage */
             --bg-sidebar: #dae6da;       /* Sidebar: Distinct Light Sage */
             --bg-nav-item: #dae6da;      /* Default Nav Item Background */
@@ -51,7 +50,7 @@
             flex-direction: column;
             flex-shrink: 0;
             overflow-y: auto;
-            box-shadow: 2px 0 10px rgba(47, 79, 47, 0.05); /* Subtle shadow for depth */
+            box-shadow: 2px 0 10px rgba(47, 79, 47, 0.05);
         }
 
         .nav-item {
@@ -72,7 +71,6 @@
             color: #1a331a;
         }
 
-        /* Distinct Active State */
         .nav-item.active {
             background-color: var(--bg-nav-active);
             color: #0f240f;
@@ -173,19 +171,17 @@
         }
 
         /* --- SECTION SPECIFIC STYLES --- */
-
-        /* Home/About Layout */
         .intro-container {
             display: flex;
             flex-direction: row;
             gap: 50px;
-            align-items: flex-start; /* Aligns top of text with top of image */
+            align-items: flex-start;
             margin-top: 40px;
         }
 
         .profile-photo {
             width: 280px;
-            min-width: 280px; /* Prevents shrinking */
+            min-width: 280px;
             height: auto;
             border: 8px solid var(--white);
             box-shadow: 0 8px 20px rgba(47, 79, 47, 0.15);
@@ -193,15 +189,13 @@
         }
 
         .intro-text {
-            /* Increased font size as requested */
             font-size: 1.35rem; 
             line-height: 1.7;
             color: #2f3f2f;
             font-weight: 400;
-            padding-top: 5px; /* Slight optical adjustment */
+            padding-top: 5px;
         }
 
-        /* Education Badges */
         .edu-details {
             margin-left: 20px;
             border-left: 3px solid var(--border-color);
@@ -214,7 +208,7 @@
             background-color: var(--badge-bg);
             color: var(--text-header);
             padding: 6px 14px;
-            border-radius: 20px; /* Pill shape */
+            border-radius: 20px;
             border: 1px solid var(--border-color);
             font-size: 0.95rem;
             font-weight: 600;
@@ -222,7 +216,6 @@
             margin-right: 5px;
         }
 
-        /* Experience Achievement Block */
         .achievement-box {
             background-color: var(--white);
             border-left: 5px solid var(--accent-color);
@@ -243,18 +236,14 @@
             letter-spacing: 0.8px;
         }
 
-        /* Awards Cards */
         .award-card {
             background-color: var(--white);
             padding: 22px;
             margin-bottom: 18px;
             border-radius: 8px;
-            border-left: 6px solid #e0c060; /* Gold/Yellow accent for Awards */
+            border-left: 6px solid #e0c060;
             box-shadow: 0 4px 12px rgba(47, 79, 47, 0.08);
             transition: transform 0.2s ease;
-            border-top: 1px solid #eee;
-            border-right: 1px solid #eee;
-            border-bottom: 1px solid #eee;
         }
 
         .award-card:hover {
@@ -269,7 +258,6 @@
             margin-bottom: 5px;
         }
 
-        /* List Styling */
         .styled-list li {
             position: relative;
             padding-left: 25px;
@@ -279,7 +267,7 @@
         }
 
         .styled-list li::before {
-            content: "\f058"; /* Check-circle icon from FontAwesome */
+            content: "\f058";
             font-family: "Font Awesome 5 Free";
             font-weight: 900;
             position: absolute;
@@ -289,7 +277,6 @@
             font-size: 1rem;
         }
 
-        /* Featured Buttons */
         .btn-link {
             display: inline-block;
             margin-top: 8px;
@@ -299,15 +286,12 @@
             border-radius: 5px;
             font-size: 0.95rem;
             transition: background 0.2s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .btn-link:hover {
             background-color: var(--accent-color);
-            color: #fff;
             transform: translateY(-1px);
         }
 
-        /* Back Button */
         .back-btn {
             display: inline-flex;
             align-items: center;
@@ -318,19 +302,14 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 700;
-            padding: 5px 10px 5px 0;
         }
         
         .back-btn:hover { color: var(--text-header); text-decoration: underline; }
 
-        /* Remove citations */
-        cite, .numerical { display: none !important; }
-
-        /* Responsive */
         @media (max-width: 950px) {
             .intro-container { flex-direction: column; align-items: center; text-align: center; }
             .profile-photo { width: 240px; min-width: 0; margin-bottom: 25px; }
-            .intro-text { text-align: left; font-size: 1.2rem; } /* Adjust font slightly on smaller screens */
+            .intro-text { text-align: left; font-size: 1.2rem; }
         }
 
         @media (max-width: 768px) {
@@ -338,33 +317,28 @@
             .sidebar { width: 100%; height: auto; padding: 15px; border-right: none; border-bottom: 1px solid var(--border-color); }
             .main-content { padding: 40px 20px; height: auto; }
             h1 { font-size: 2.2rem; }
-            .sub-menu { display: none; } /* Hide sub-menu on mobile for space */
+            .sub-menu { display: none; }
         }
     </style>
 </head>
 <body>
 
     <nav class="sidebar">
-        <div class="nav-item" onclick="showSection('home')">
+        <div class="nav-item active" onclick="showSection('home')">
             <i class="fas fa-home"></i> Home & About
         </div>
-        
         <div class="nav-item" onclick="showSection('education')">
             <i class="fas fa-graduation-cap"></i> Education
         </div>
-        
         <div class="nav-item" onclick="showSection('experience')">
             <i class="fas fa-briefcase"></i> Work Experience
         </div>
-        
         <div class="nav-item" onclick="showSection('awards')">
             <i class="fas fa-award"></i> Awards
         </div>
-        
         <div class="nav-item" onclick="showSection('mentoring')">
             <i class="fas fa-users"></i> Mentoring
         </div>
-        
         <div class="nav-item" onclick="showSection('skills')">
             <i class="fas fa-tools"></i> Skills
         </div>
@@ -373,30 +347,23 @@
             <span class="sub-link" onclick="showSection('skills')">- Soft Skills</span>
             <span class="sub-link" onclick="showSection('skills')">- Core Competencies</span>
         </div>
-
         <div class="nav-item" onclick="showSection('featured')">
             <i class="fas fa-star"></i> Featured
         </div>
-        
         <div class="nav-item" onclick="showSection('hobbies')">
             <i class="fas fa-heart"></i> Hobbies
         </div>
     </nav>
 
     <main class="main-content">
-
         <section id="home" class="section active-section">
             <h1>Ankita Swain</h1>
             <h2 style="font-weight: 300; margin-bottom: 10px;">Corporate Finance Manager | Finance Business Partner</h2>
-            
             <div class="intro-container">
                 <img src="images/profile.jpg" alt="Ankita Swain" class="profile-photo">
-                
                 <div class="intro-text">
                     <p>I am a finance professional with 7+ years of solid experience in Corporate Finance, M&A, and Financial Planning. I have worked with international and cross-functional teams in industries including Healthcare, Hi-Tech, Energy, Manufacturing, and Retail.</p>
-                    
                     <p>My expertise includes business development, process optimization, and stakeholder management across multiple levels.</p>
-                    
                     <p>I am passionate about disruptive technologies and financial blogging. I adhere to compliance frameworks such as IFRS, SOX, and US/UK/NL GAAP.</p>
                 </div>
             </div>
@@ -405,52 +372,7 @@
         <section id="education" class="section">
             <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
             <h1>Education</h1>
-            
             <h3>Symbiosis International University</h3>
             <p style="margin-bottom: 5px;"><strong>Executive MBA (Finance)</strong></p>
             <p style="margin-top: 0; color: #556b55;">Academic Year 2016 – 2018</p>
-            
-            <div class="edu-details">
-                <span class="edu-badge">Grade: 3.3/4 GPA</span>
-                <ul class="styled-list" style="margin-top: 15px;">
-                    <li>Activity: Class Representative (Academic Year 2016-17 to Academic Year 2017-18)</li>
-                </ul>
-            </div>
-
-            <h3>Utkal University</h3>
-            <p style="margin-bottom: 5px;"><strong>Bachelor of Arts, Economics</strong></p>
-            <p style="margin-top: 0; color: #556b55;">2013 – 2016</p>
-            
-            <div class="edu-details">
-                <span class="edu-badge">Grade: 3.28/4 GPA</span>
-                <span class="edu-badge">First Class Honours With Distinction</span>
-                <span class="edu-badge">Summa Cum Laude</span>
-                <span class="edu-badge">Rank 1 in Statistics</span>
-                
-                <ul class="styled-list" style="margin-top: 20px;">
-                    <li>Activities: Member of Students Union, Anchor at Economic Seminars</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="experience" class="section">
-            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
-            <h1>Work Experience</h1>
-
-            <h3>Wipro Limited</h3>
-            <p><em>Bengaluru, Karnataka, India</em></p>
-            
-            <h4>Financial Analyst to Sector Business Finance Manager (Jun 2018 - Jun 2025)</h4>
-            <ul class="styled-list">
-                <li>Partnered with Senior Leaders in the APMEA SMU (Asia Pacific, Middle East, ANZ Strategic Marketing Unit) to provide financial oversight and guidance for a government sector portfolio, ensuring compliance, efficiency, and profitability.</li>
-                <li>Led end-to-end cash flow forecasting and budgeting for complex APMEA public sector accounts, correcting forecast variances across 2 consecutive quarters and restoring CFO confidence in outlook accuracy through strengthened controls and scenario modeling.</li>
-                <li>Partnered with Operations, Sales, Delivery and Investment team to proactively identify high-risk government customers, including collaboration with anti-corruption task force inputs, reducing forecast volatility and preventing revenue exposure on sensitive PSU deals by >30%.</li>
-                <li>Designed and executed revised billing and payout structures for a 5-year Tamil Nadu Treasury renewal, introducing milestone-based invoicing and staggered vendor payouts across 20+ suppliers, eliminating negative cash-flow months while securing contract renewal.</li>
-                <li>Monitored cost structures, unit economics for state-wide rollouts linking milestone based billing & vendor payout terms to project CAPEX.</li>
-                <li>Resolved 7+ months of overdue receivables for Telangana State account through targeted stakeholder engagement and sales partnership, accelerating collections without relationship escalation and creating opportunity for upfront-payment renewal terms.</li>
-                <li>Integrated multi-source financial, operational, and risk data into clear executive narratives, enabling leadership decision-making through concise storytelling, variance drivers, and actionable recommendations during monthly and quarterly reviews.</li>
-                <li>Collaborated across global stakeholders (US, UK, Europe, ME, Russia) to standardize financial processes and reporting using SOPs and automation tools, improving cross-region forecast consistency and reducing rework by ~25%.</li>
-                <li>Applied advanced financial modeling and scenario analysis to public-sector and SMB deals, aligning pricing, investment decisions, and risk appetite with corporate strategy while supporting sustainable growth across regulated markets.</li>
-                <li>Led a team of 4 financial analysts, fostering high performance and career growth.</li>
-            </ul>
-            <div class="achievement
+            <div class="edu-details
