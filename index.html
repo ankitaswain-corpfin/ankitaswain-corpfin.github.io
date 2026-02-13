@@ -20,6 +20,7 @@
             --text-header: #1f3b1f;
             --accent-color: #4a6b4a;
             --border-color: #aebfae;
+            --dark-sage-border: #2f4f2f; /* Darker sage for paragraph borders */
             --white: #ffffff;
             --badge-bg: #e8f0e8;
         }
@@ -65,7 +66,6 @@
         }
 
         .nav-item:hover { background-color: var(--bg-nav-hover); color: #1a331a; }
-
         .nav-item.active {
             background-color: var(--bg-nav-active);
             color: #0f240f;
@@ -74,10 +74,6 @@
         }
 
         .nav-item i { width: 28px; margin-right: 12px; text-align: center; }
-
-        .sub-menu { margin-left: 50px; margin-bottom: 12px; border-left: 2px solid var(--border-color); padding-left: 12px; }
-        .sub-link { display: block; padding: 6px 0; font-size: 0.95rem; color: #556b55; cursor: pointer; transition: color 0.2s; }
-        .sub-link:hover { color: #1a331a; font-weight: 600; }
 
         /* --- MAIN CONTENT --- */
         .main-content {
@@ -99,73 +95,81 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
+        /* Titles and Headers */
         h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 15px; color: var(--text-header); border-bottom: 3px solid var(--border-color); padding-bottom: 15px; }
-        h2 { font-size: 1.6rem; font-weight: 400; margin-top: 0; color: var(--accent-color); }
         h3 { font-size: 1.4rem; font-weight: 700; margin-top: 40px; margin-bottom: 12px; color: var(--text-header); }
         h4 { font-size: 1.15rem; margin-bottom: 8px; margin-top: 20px; color: #2c3e2c; font-weight: 600; }
-        p { line-height: 1.7; color: #334433; margin-bottom: 18px; white-space: pre-line; }
+        
+        /* General Paragraph Styling */
+        p { line-height: 1.7; color: #334433; margin-bottom: 0; padding-bottom: 18px; white-space: pre-line; }
+
+        /* Section Borders */
+        .bordered-para {
+            border-bottom: 1.5px solid var(--dark-sage-border);
+            margin-bottom: 20px;
+        }
+
+        /* Specific Font Size for Home/About */
+        .home-about-content p {
+            font-size: 11pt;
+        }
 
         .intro-container { display: flex; flex-direction: row; gap: 50px; align-items: flex-start; margin-top: 40px; }
         .profile-photo { width: 280px; min-width: 280px; height: auto; border: 8px solid var(--white); box-shadow: 0 8px 20px rgba(47, 79, 47, 0.15); border-radius: 4px; }
-        .intro-text { font-size: 1.25rem; line-height: 1.7; color: #2f3f2f; }
 
-        .edu-badge { display: inline-block; background-color: var(--badge-bg); color: var(--text-header); padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 0.95rem; font-weight: 600; margin-top: 6px; margin-right: 5px; }
         .award-card { background-color: var(--white); padding: 22px; margin-bottom: 18px; border-radius: 8px; border-left: 6px solid #e0c060; box-shadow: 0 4px 12px rgba(47, 79, 47, 0.08); }
         .styled-list li { position: relative; padding-left: 25px; margin-bottom: 10px; line-height: 1.6; color: #334433; list-style: none; }
         .styled-list li::before { content: "\f058"; font-family: "Font Awesome 5 Free"; font-weight: 900; position: absolute; left: 0; top: 2px; color: var(--accent-color); font-size: 1rem; }
 
         .btn-link { display: inline-block; margin-top: 8px; padding: 10px 18px; background-color: var(--text-header); color: #fff; border-radius: 5px; text-decoration: none; }
         .back-btn { display: inline-flex; align-items: center; font-size: 0.9rem; color: var(--accent-color); margin-bottom: 25px; cursor: pointer; text-transform: uppercase; font-weight: 700; }
-
-        @media (max-width: 950px) { .intro-container { flex-direction: column; align-items: center; } .profile-photo { width: 240px; min-width: 0; } }
     </style>
 </head>
 <body>
 
     <nav class="sidebar">
-        <div class="nav-item active" onclick="showSection('home')"><i class="fas fa-home"></i> Home & About Me</div>
+        <div class="nav-item active" onclick="showSection('home')"><i class="fas fa-home"></i> Home</div>
+        <div class="nav-item" onclick="showSection('about')"><i class="fas fa-user"></i> About Me</div>
         <div class="nav-item" onclick="showSection('experience')"><i class="fas fa-briefcase"></i> Work Experience</div>
         <div class="nav-item" onclick="showSection('education')"><i class="fas fa-graduation-cap"></i> Education</div>
         <div class="nav-item" onclick="showSection('mentoring')"><i class="fas fa-users"></i> Mentoring</div>
         <div class="nav-item" onclick="showSection('awards')"><i class="fas fa-award"></i> Awards & Recognitions</div>
         <div class="nav-item" onclick="showSection('skills')"><i class="fas fa-tools"></i> Skills</div>
-        <div class="sub-menu">
-            <span class="sub-link" onclick="showSection('skills')">- Technical Skills</span>
-            <span class="sub-link" onclick="showSection('skills')">- Core Competencies</span>
-            <span class="sub-link" onclick="showSection('skills')">- Soft Skills</span>
-        </div>
         <div class="nav-item" onclick="showSection('featured')"><i class="fas fa-star"></i> Featured</div>
         <div class="nav-item" onclick="showSection('hobbies')"><i class="fas fa-heart"></i> Hobbies</div>
     </nav>
 
     <main class="main-content">
-        <section id="home" class="section active-section">
-            <h1>Home & About Me</h1>
+        <section id="home" class="section active-section home-about-content">
+            <h1>Home</h1>
             <div class="intro-container">
                 <img src="images/profile.jpg" alt="Ankita Swain" class="profile-photo">
-                <div class="intro-text">
-                    <p>A finance professional with 7+ years of solid experience in Corporate Finance, M&A, and Financial Planning, working with international and cross-functional teams. Skilled in business development, process optimization, and stakeholder management across multiple levels.
-
-                    As a Business Finance Manager, my key responsibilities & achievements are as below:
-
-                    Over a span of 7 years, worked in a variety of industries including Healthcare, Hi-Tech, Energy, Manufacturing & Retail.
-
-                    Worked in the APMEA SMU (Asia Pacific, Middle East, ANZ Strategic Marketing Unit) to provide financial oversight and guidance for a government sector portfolio, ensuring compliance, efficiency, and profitability.
-
-                    Adhered to compliance frameworks such as IFRS, EU-IFRS, SOX, US, UK & NL GAAP.
-                    Mentored and managed a team of financial analysts.
-
-                    I'm passionate about corporate finance, financial blogging, mentoring and disruptive technologies that change the way we work, with a strong interest in global and regional markets and cultural experiences.
-
-                    Feel free to contact me.</p>
+                <div>
+                    <p class="bordered-para">If there’s one constant in my life, it’s that I am always in the middle of a story, sometimes reading it, sometimes writing it and often accidentally living it.</p>
+                    <p class="bordered-para">By day, I work with numbers and narratives of a very practical kind like cash flows, forecasts, the quiet drama of decisions on a balance sheet. By night and most weekends, I trade spreadsheets for stories. I host Baby Blue Book Club, a small experiment that started with two friends and has grown into a cozy, opinionated corner of the internet where thirty-plus readers and a few hundred lurkers argue lovingly about books.</p>
+                    <p>When I’m not talking about stories, I’m usually consuming them in sitcoms, crime thrillers, horror movies, or the YA fantasy novel I’m slowly, stubbornly writing. I cook Indo‑Chinese food for comfort, unroll my yoga mat for sanity, and blog about money, fashion, and literature because I like my worlds a little bit mixed, logic with aesthetics, discipline with daydreaming and intentions with actions.</p>
                 </div>
             </div>
         </section>
 
+        <section id="about" class="section home-about-content">
+            <div class="back-btn" onclick="showSection('home')">← Back</div>
+            <h1>About Me</h1>
+            <p class="bordered-para">A finance professional with 7+ years of solid experience in Corporate Finance, M&A, and Financial Planning, working with international and cross-functional teams. Skilled in business development, process optimization, and stakeholder management across multiple levels.</p>
+            <p class="bordered-para">As a Business Finance Manager, my key responsibilities & achievements are as below:
+
+            Over a span of 7 years, worked in a variety of industries including Healthcare, Hi-Tech, Energy, Manufacturing & Retail.</p>
+            <p class="bordered-para">Worked in the APMEA SMU (Asia Pacific, Middle East, ANZ Strategic Marketing Unit) to provide financial oversight and guidance for a government sector portfolio, ensuring compliance, efficiency, and profitability.</p>
+            <p class="bordered-para">Adhered to compliance frameworks such as IFRS, EU-IFRS, SOX, US, UK & NL GAAP.
+            Mentored and managed a team of financial analysts.</p>
+            <p class="bordered-para">I'm passionate about corporate finance, financial blogging, mentoring and disruptive technologies that change the way we work, with a strong interest in global and regional markets and cultural experiences.</p>
+            <p>Feel free to contact me.</p>
+        </section>
+
         <section id="experience" class="section">
-            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
+            <div class="back-btn" onclick="showSection('home')">← Back</div>
             <h1>Work Experience</h1>
-            <p><strong>Company Name:</strong> Wipro limited
+            <p class="bordered-para"><strong>Company Name:</strong> Wipro limited
             <strong>Location:</strong> Bengaluru, Karnataka, India
             <strong>Experience:</strong> 7 years, 1 month</p>
             
@@ -185,140 +189,126 @@
         </section>
 
         <section id="education" class="section">
-            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
+            <div class="back-btn" onclick="showSection('home')">← Back</div>
             <h1>Education</h1>
-            
-            <h3>SYMBIOSIS INTERNATIONAL UNIVERSITY</h3>
-            <p>Executive MBA (Finance), Finance, General
-            2016 – 2018
-            Grade: 3.3/4 GPA
-            Activities: Class Representative (AY2016-17 To AY2017-18)</p>
+            <div class="bordered-para">
+                <h3>SYMBIOSIS INTERNATIONAL UNIVERSITY</h3>
+                <p>Executive MBA (Finance), Finance, General
+                2016 – 2018
+                Grade: 3.3/4 GPA
+                Activities: Class Representative (AY2016-17 To AY2017-18)</p>
+            </div>
+            <div class="bordered-para">
+                <h3>Utkal University</h3>
+                <p>Bachelor of Arts - BA, Economics
+                2013 – 2016
+                Grade: 3.28/4 GPA, Rank 1 in Statistics, First Class Honours With Distinction, Summa Cum Laude
 
-            <h3>Utkal University</h3>
-            <p>Bachelor of Arts - BA, Economics
-            2013 – 2016
-            Grade: 3.28/4 GPA, Rank 1 in Statistics, First Class Honours With Distinction, Summa Cum Laude
+                Activities and societies: Member of Students Union and Anchor at Economic Seminars and Conventions
 
-            Activities and societies: Member of Students Union and Anchor at Economic Seminars and Conventions
+                Studied Micro Economics, Macro Economics (1st Year)
+                Statistics (2nd Year)
+                International Trade, Mathematical Economics (3rd Year)
+                Seminar Project on Foreign Direct Investments in India
 
-            Studied Micro Economics, Macro Economics (1st Year)
-            Statistics (2nd Year)
-            International Trade, Mathematical Economics (3rd Year)
-            Seminar Project on Foreign Direct Investments in India
-
-            Bachelor's thesis in Income Inequality
-            First Class Honours With Distinction, Summa Cum Laude</p>
+                Bachelor's thesis in Income Inequality
+                First Class Honours With Distinction, Summa Cum Laude</p>
+            </div>
         </section>
 
         <section id="mentoring" class="section">
-            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
+            <div class="back-btn" onclick="showSection('home')">← Back</div>
             <h1>Mentoring</h1>
-            
-            <h3>Education Mentor</h3>
-            <p>SYMBIOSIS INTERNATIONAL UNIVERSITY · Part-time
-            Jan 2022 - May 2022 · 5 mos
-            Bengaluru, Karnataka, India · Hybrid
-            Mentored Aayush Mehrotra (SIU Junior candidate pursuing MBA finance) on the final semester dissertation project 'Revenue COE and pricing operations for Hi-Tech sector' at Wipro limited'.</p>
-
-            <h3>Education Mentor</h3>
-            <p>SYMBIOSIS INTERNATIONAL UNIVERSITY · Part-time
-            Jan 2021 - May 2021 · 5 mos
-            Bengaluru, Karnataka, India · On-site
-            Mentored Harshil Vinchhi (SIU Junior candidate pursuing MBA finance) on the final semester dissertation project 'Invoicing processes for fixed price contracts in Global Business Lines at Wipro limited'.</p>
+            <div class="bordered-para">
+                <h3>Education Mentor</h3>
+                <p>SYMBIOSIS INTERNATIONAL UNIVERSITY · Part-time
+                Jan 2022 - May 2022 · 5 mos
+                Bengaluru, Karnataka, India · Hybrid
+                Mentored Aayush Mehrotra (SIU Junior candidate pursuing MBA finance) on the final semester dissertation project 'Revenue COE and pricing operations for Hi-Tech sector' at Wipro limited'.</p>
+            </div>
+            <div>
+                <h3>Education Mentor</h3>
+                <p>SYMBIOSIS INTERNATIONAL UNIVERSITY · Part-time
+                Jan 2021 - May 2021 · 5 mos
+                Bengaluru, Karnataka, India · On-site
+                Mentored Harshil Vinchhi (SIU Junior candidate pursuing MBA finance) on the final semester dissertation project 'Invoicing processes for fixed price contracts in Global Business Lines at Wipro limited'.</p>
+            </div>
         </section>
 
         <section id="awards" class="section">
-            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
+            <div class="back-btn" onclick="showSection('home')">← Back</div>
             <h1>Awards & Recognitions</h1>
-            
             <div class="award-card">
                 <h4>Honour Badge</h4>
                 <p>Issued by Wipro Limited · Jun 2022
-                Associated with Wipro
                 Awarded internally for collaboration in O2C activities across sectors under Americas 2 Strategic Marketing Unit.</p>
             </div>
-
             <div class="award-card">
                 <h4>Habit Flagbearer</h4>
                 <p>Issued by Wipro Limited · Jan 2022
-                Associated with Wipro
                 Awarded for ImpactPlayer, Achiever, Thinker traits in securing Healthcare vertical targets in Invoicing.</p>
             </div>
-
             <div class="award-card">
                 <h4>Inspiring Performance</h4>
                 <p>Issued by Wipro Limited · Sep 2021
-                Associated with Wipro
                 Awarded for ExtraMile, TeamPlayer, OverTheTop traits in managing stakeholders.</p>
             </div>
         </section>
 
         <section id="skills" class="section">
-            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
+            <div class="back-btn" onclick="showSection('home')">← Back</div>
             <h1>Skills</h1>
-            
-            <h3>Technical Skills</h3>
-            <ul class="styled-list">
-                <li>Utility Tools: MS Word, MS Excel, MS PowerPoint, Microsoft Teams, Google Drive (G-Suite)</li>
-                <li>Data Analysis: Power BI/Power Pivot, Power Query</li>
-                <li>ERP Systems: SAP, Workday, Netsuite</li>
-                <li>CRM Tools: Salesforce, Informatica, Dynamics 365</li>
-                <li>Financial Modelling: Three-statement models, revenue forecasting based on existing/new customers, and headcount planning, often targeting areas like working capital optimization (ARR, MRR, churn, EAC, retention, renewals, lifetime value)</li>
-                <li>Pre-sales Tools: Wipro In-house QDPS, QTrace</li>
-                <li>GRC and change management platforms: ServiceNow, Jira, Confluence</li>
-                <li>FP&A Tools: Anaplan, Wipro HOLMES, Netsuite F&A BPaaS</li>
-                <li>Advanced Trainings: Generative AI Level 1 and 2 cleared</li>
-            </ul>
-
-            <h3>CORE COMPETENCIES</h3>
-            <ul class="styled-list">
-                <li>Financial Analysis</li><li>Financial Reporting</li><li>Budget & Forecasting</li><li>Financial Planning</li><li>Strategic Planning</li><li>Cash Flow Management</li><li>Financial Modeling</li><li>P&L Management</li><li>Investment Analysis</li><li>Stakeholder Engagement</li><li>Corporate Governance</li><li>Financial Policy Development</li><li>Cross-Functional Collaboration</li>
-            </ul>
-
-            <h3>Soft Skills</h3>
-            <ul class="styled-list">
-                <li>IFRS</li><li>GAAP : US, UK & NL</li><li>SOX</li><li>COSO</li><li>Group Reporting & Consolidation Basics</li><li>Technical Accounting : Closing and Accruals</li>
-            </ul>
+            <div class="bordered-para">
+                <h3>Technical Skills</h3>
+                <ul class="styled-list">
+                    <li>Utility Tools: MS Word, MS Excel, MS PowerPoint, Microsoft Teams, Google Drive (G-Suite)</li>
+                    <li>Data Analysis: Power BI/Power Pivot, Power Query</li>
+                    <li>ERP Systems: SAP, Workday, Netsuite</li>
+                    <li>CRM Tools: Salesforce, Informatica, Dynamics 365</li>
+                    <li>Financial Modelling: Three-statement models, revenue forecasting, working capital optimization</li>
+                    <li>Advanced Trainings: Generative AI Level 1 and 2 cleared</li>
+                </ul>
+            </div>
+            <div class="bordered-para">
+                <h3>CORE COMPETENCIES</h3>
+                <p>Financial Analysis, Reporting, Budget & Forecasting, Strategic Planning, Cash Flow Management, Financial Modeling, P&L Management, Stakeholder Engagement, Corporate Governance, Cross-Functional Collaboration.</p>
+            </div>
+            <div>
+                <h3>Soft Skills</h3>
+                <p>IFRS, GAAP (US, UK & NL), SOX, COSO, Group Reporting, Technical Accounting (Closing and Accruals).</p>
+            </div>
         </section>
 
         <section id="featured" class="section">
-            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
+            <div class="back-btn" onclick="showSection('home')">← Back</div>
             <h1>Featured</h1>
-            <p><a href="https://medium.com/vauld/banks-using-the-one-technology-that-should-disrupt-them-blockchain-371af586fa62" target="_blank" class="btn-link">Blockchain in Banking <i class="fas fa-external-link-alt"></i></a></p>
+            <p class="bordered-para"><a href="https://medium.com/vauld/banks-using-the-one-technology-that-should-disrupt-them-blockchain-371af586fa62" target="_blank" class="btn-link">Blockchain in Banking <i class="fas fa-external-link-alt"></i></a></p>
             <p><a href="https://medium.com/vauld/why-is-the-tether-preferred-over-us-dollars-5e5f818f6aa9" target="_blank" class="btn-link">Tether vs US Dollars <i class="fas fa-external-link-alt"></i></a></p>
         </section>
 
         <section id="hobbies" class="section">
-            <div class="back-btn" onclick="showSection('home')"><i class="fas fa-chevron-left"></i> &nbsp; Back</div>
+            <div class="back-btn" onclick="showSection('home')">← Back</div>
             <h1>Hobbies</h1>
-            <p><strong>Reading:</strong> Founder/Host of ‘Baby Blue Book Club’, a non-traditional book club where members meet on a decided Sunday evening to discuss books, reading habits and recommendations on Google hangout, post on instagram to increase visibility, reading list and marketing which started with 2 members and currently it has more than 30 members in 3 years and over 400 followers on Instagram.
-            <strong>Workout & Sports:</strong> Hiking (as and when time permits) & Yoga (Regularly)
-            <strong>Cooking:</strong> Cooking Indo-Chinese dishes in my leisure
-            <strong>Blogging:</strong> Financial Blogging on Medium & Fashion and Literature blogging on Instagram and Substack
-            <strong>Entertainment:</strong> Watching Sitcoms, Crime Thrillers and Horror movies 
-            <strong>Writing:</strong> Aspiring Novelist, writing a Young Adult (YA) Fantasy</p>
+            <p><strong>Reading:</strong> Founder/Host of ‘Baby Blue Book Club’... currently more than 30 members and over 400 followers on Instagram.
+            <strong>Workout & Sports:</strong> Hiking & Yoga.
+            <strong>Cooking:</strong> Indo-Chinese dishes.
+            <strong>Blogging:</strong> Financial Blogging, Fashion and Literature blogging.
+            <strong>Entertainment:</strong> Sitcoms, Crime Thrillers and Horror movies.
+            <strong>Writing:</strong> Aspiring Novelist, YA Fantasy.</p>
         </section>
     </main>
 
     <script>
         function showSection(sectionId) {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.classList.remove('active-section');
-            });
-
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active-section'));
             const activeSection = document.getElementById(sectionId);
-            if (activeSection) {
-                activeSection.classList.add('active-section');
-            }
+            if (activeSection) activeSection.classList.add('active-section');
 
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => {
+            document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.remove('active');
-                if (item.getAttribute('onclick').includes(sectionId)) {
-                    item.classList.add('active');
-                }
+                if (item.getAttribute('onclick').includes(sectionId)) item.classList.add('active');
             });
+            document.querySelector('.main-content').scrollTop = 0;
         }
     </script>
 </body>
