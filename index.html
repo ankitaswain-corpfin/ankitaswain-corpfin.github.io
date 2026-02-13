@@ -91,6 +91,13 @@
             line-height: 1.7;
         }
 
+        /* Home Layout */
+        .home-layout { display: flex; gap: 40px; align-items: flex-start; }
+        .profile-img { 
+            width: 280px; border-radius: 15px; border: 6px solid var(--white); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
         /* Education Sub-Boxes */
         .edu-sub-box {
             background: var(--white);
@@ -175,6 +182,43 @@
             </div>
         </section>
 
+        <section id="about" class="section">
+            <div class="back-btn" onclick="showSection('home')">← Back</div>
+            <h1>About Me</h1>
+            <div class="content-card">A finance professional with 7+ years of solid experience in Corporate Finance, M&A, and Financial Planning, working with international and cross-functional teams. Skilled in business development, process optimization, and stakeholder management across multiple levels.</div>
+            <div class="content-card">
+                <strong>As a Business Finance Manager, my key responsibilities & achievements are as below:</strong><br><br>
+                Over a span of 7 years, worked in a variety of industries including Healthcare, Hi-Tech, Energy, Manufacturing & Retail.<br><br>
+                Worked in the APMEA SMU (Asia Pacific, Middle East, ANZ Strategic Marketing Unit) to provide financial oversight and guidance for a government sector portfolio, ensuring compliance, efficiency, and profitability.<br><br>
+                Adhered to compliance frameworks such as IFRS, EU-IFRS, SOX, US, UK & NL GAAP. Mentored and managed a team of financial analysts.<br><br>
+                I'm passionate about corporate finance, financial blogging, mentoring and disruptive technologies that change the way we work, with a strong interest in global and regional markets and cultural experiences.<br><br>
+                <strong>Feel free to contact me.</strong>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <div class="back-btn" onclick="showSection('home')">← Back</div>
+            <h1>Work Experience</h1>
+            <div class="content-card">
+                <strong>Company Name:</strong> Wipro limited<br>
+                <strong>Location:</strong> Bengaluru, Karnataka, India<br>
+                <strong>Experience:</strong> 7 years, 1 month
+            </div>
+            <h3>Financial Analyst - Sector Business Finance Manager (Jun 2018- Jun 2025)</h3>
+            <ul class="styled-list">
+                <li>Partnered with Senior Leaders in the APMEA SMU (Asia Pacific, Middle East, ANZ Strategic Marketing Unit) to provide financial oversight and guidance for a government sector portfolio,ensuring compliance, efficiency, and profitability.</li>
+                <li>Led end-to-end cash flow forecasting and budgeting for complex APMEA public sector accounts, correcting forecast variances across 2 consecutive quarters and restoring CFO confidence in outlook accuracy through strengthened controls and scenario modeling.</li>
+                <li>Partnered with Operations, Sales, Delivery and Investment team to proactively identify high-risk government customers, including collaboration with anti-corruption task force inputs, reducing forecast volatility and preventing revenue exposure on sensitive PSU deals by >30%.</li>
+                <li>Designed and executed revised billing and payout structures for a 5-year Tamil Nadu Treasury renewal, introducing milestone-based invoicing and staggered vendor payouts across 20+ suppliers, eliminating negative cash-flow months while securing contract renewal.</li>
+                <li>Monitored cost structures, unit economics for state-wide rollouts linking milestone based billing & vendor payout terms to project CAPEX.</li>
+                <li>Resolved 7+ months of overdue receivables for Telangana State account through targeted stakeholder engagement and sales partnership, accelerating collections without relationship escalation and creating opportunity for upfront-payment renewal terms.</li>
+                <li>Integrated multi-source financial, operational, and risk data into clear executive narratives, enabling leadership decision-making through concise storytelling, variance drivers, and actionable recommendations during monthly and quarterly reviews.</li>
+                <li>Collaborated across global stakeholders (US, UK, Europe, ME, Russia) to standardize financial processes and reporting using SOPs and automation tools, improving cross-region forecast consistency and reducing rework by ~25%.</li>
+                <li>Applied advanced financial modeling and scenario analysis to public-sector and SMB deals, aligning pricing, investment decisions, and risk appetite with corporate strategy while supporting sustainable growth across regulated markets.</li>
+                <li>Led a team of 4 financial analysts, fostering high performance and career growth.</li>
+            </ul>
+        </section>
+
         <section id="education" class="section">
             <div class="back-btn" onclick="showSection('home')">← Back</div>
             <h1>Education</h1>
@@ -193,13 +237,26 @@
                 <div class="edu-sub-box"><strong>Grade:</strong> 3.28/4 GPA, Rank 1 in Statistics</div>
                 <div class="edu-sub-box"><strong>Honours:</strong> First Class Honours With Distinction, Summa Cum Laude</div>
                 <div class="edu-sub-box"><strong>Thesis:</strong> Bachelor's thesis in Income Inequality</div>
-                <h4 style="margin:20px 0 10px 0;">Activities and Societies</h4>
+                <h4 style="margin:20px 0 10px 0;">Activities and societies</h4>
                 <p style="margin:0;">Member of Students Union and Anchor at Economic Seminars and Conventions</p>
                 <h4 style="margin:20px 0 10px 0;">Curriculum Focus</h4>
                 <div class="edu-sub-box">Micro Economics, Macro Economics (1st Year)</div>
                 <div class="edu-sub-box">Statistics (2nd Year)</div>
                 <div class="edu-sub-box">International Trade, Mathematical Economics (3rd Year)</div>
                 <div class="edu-sub-box">Seminar Project on Foreign Direct Investments in India</div>
+            </div>
+        </section>
+
+        <section id="mentoring" class="section">
+            <div class="back-btn" onclick="showSection('home')">← Back</div>
+            <h1>Mentoring</h1>
+            <div class="content-card">
+                <strong>Education Mentor - SYMBIOSIS INTERNATIONAL UNIVERSITY</strong> (Jan 2022 - May 2022)<br>
+                Mentored Aayush Mehrotra (SIU Junior candidate pursuing MBA finance) on the final semester dissertation project 'Revenue COE and pricing operations for Hi-Tech sector' at Wipro limited'.
+            </div>
+            <div class="content-card">
+                <strong>Education Mentor - SYMBIOSIS INTERNATIONAL UNIVERSITY</strong> (Jan 2021 - May 2021)<br>
+                Mentored Harshil Vinchhi (SIU Junior candidate pursuing MBA finance) on the final semester dissertation project 'Invoicing processes for fixed price contracts in Global Business Lines at Wipro limited'.
             </div>
         </section>
 
@@ -226,62 +283,54 @@
             </div>
         </section>
 
+        <section id="skills" class="section">
+            <div class="back-btn" onclick="showSection('home')">← Back</div>
+            <h1>Skills</h1>
+            <div class="content-card">
+                <strong>Technical Skills</strong><br>
+                Utility Tools: MS Word, MS Excel, MS PowerPoint, Microsoft Teams, Google Drive (G-Suite)<br>
+                Data Analysis: Power BI/Power Pivot, Power Query<br>
+                ERP Systems: SAP, Workday, Netsuite<br>
+                CRM Tools: Salesforce, Informatica, Dynamics 365<br>
+                Financial Modelling: Three-statement models, revenue forecasting based on existing/new customers, and headcount planning, often targeting areas like working capital optimization (ARR, MRR, churn, EAC, retention, renewals, lifetime value)<br>
+                Pre-sales Tools: Wipro In-house QDPS, QTrace<br>
+                GRC and change management platforms: ServiceNow, Jira, Confluence<br>
+                FP&A Tools: Anaplan, Wipro HOLMES, Netsuite F&A BPaaS<br>
+                Advanced Trainings: Generative AI Level 1 and 2 cleared
+            </div>
+            <div class="content-card">
+                <strong>Core Competencies</strong><br>
+                Financial Analysis, Financial Reporting, Budget & Forecasting, Financial Planning, Strategic Planning, Cash Flow Management, Financial Modeling, P&L Management, Investment Analysis, Stakeholder Engagement, Corporate Governance, Financial Policy Development, Cross-Functional Collaboration
+            </div>
+            <div class="content-card">
+                <strong>Soft Skills</strong><br>
+                IFRS, GAAP : US, UK & NL, SOX, COSO, Group Reporting & Consolidation Basics, Technical Accounting : Closing and Accruals
+            </div>
+        </section>
+
         <section id="featured" class="section">
             <div class="back-btn" onclick="showSection('home')">← Back</div>
             <h1>Featured</h1>
             <div class="content-card">
                 <p style="margin-bottom: 20px;">
-                    <i class="fab fa-medium" style="margin-right:10px;"></i>
-                    <a href="https://medium.com/vauld/banks-using-the-one-technology-that-should-disrupt-them-blockchain-371af586fa62" target="_blank" class="link-text">Banks Using the One Technology That Should Disrupt Them: Blockchain</a>
+                    <a href="https://medium.com/vauld/banks-using-the-one-technology-that-should-disrupt-them-blockchain-371af586fa62" target="_blank" class="link-text">https://medium.com/vauld/banks-using-the-one-technology-that-should-disrupt-them-blockchain-371af586fa62</a>
                 </p>
                 <p>
-                    <i class="fab fa-medium" style="margin-right:10px;"></i>
-                    <a href="https://medium.com/vauld/why-is-the-tether-preferred-over-us-dollars-5e5f818f6aa9" target="_blank" class="link-text">Why is the Tether Preferred Over US Dollars?</a>
+                    <a href="https://medium.com/vauld/why-is-the-tether-preferred-over-us-dollars-5e5f818f6aa9" target="_blank" class="link-text">https://medium.com/vauld/why-is-the-tether-preferred-over-us-dollars-5e5f818f6aa9</a>
                 </p>
             </div>
-        </section>
-
-        <section id="experience" class="section">
-            <div class="back-btn" onclick="showSection('home')">← Back</div>
-            <h1>Work Experience</h1>
-            <div class="content-card">
-                <strong>Company Name:</strong> Wipro limited<br>
-                <strong>Location:</strong> Bengaluru, Karnataka, India<br>
-                <strong>Experience:</strong> 7 years, 1 month
-            </div>
-            <h3>Financial Analyst - Sector Business Finance Manager (Jun 2018- Jun 2025)</h3>
-            <ul class="styled-list">
-                <li>Partnered with Senior Leaders in the APMEA SMU to provide financial oversight for a government sector portfolio.</li>
-                <li>Led end-to-end cash flow forecasting and budgeting for complex APMEA public sector accounts.</li>
-                <li>Partnered with Operations and Sales to identify high-risk government customers.</li>
-                <li>Designed and executed revised billing and payout structures for a 5-year Tamil Nadu Treasury renewal.</li>
-                <li>Monitored cost structures and unit economics for state-wide rollouts.</li>
-                <li>Resolved 7+ months of overdue receivables for Telangana State account.</li>
-                <li>Integrated multi-source financial, operational, and risk data into clear executive narratives.</li>
-                <li>Collaborated across global stakeholders to standardize financial processes and reporting using SOPs.</li>
-                <li>Applied advanced financial modeling and scenario analysis to public-sector and SMB deals.</li>
-                <li>Led a team of 4 financial analysts, fostering high performance and career growth.</li>
-            </ul>
-        </section>
-
-        <section id="skills" class="section">
-            <div class="back-btn" onclick="showSection('home')">← Back</div>
-            <h1>Skills</h1>
-            <div class="content-card"><strong>Technical Skills:</strong> Utility Tools (Excel, G-Suite), Data Analysis (Power BI), ERP (SAP, Netsuite), CRM (Salesforce), Financial Modelling, FP&A Tools (Anaplan).</div>
-            <div class="content-card"><strong>Core Competencies:</strong> Financial Analysis, Reporting, Budgeting, Strategic Planning, Stakeholder Engagement.</div>
-            <div class="content-card"><strong>Soft Skills:</strong> IFRS, GAAP, SOX, COSO, Technical Accounting.</div>
         </section>
 
         <section id="hobbies" class="section">
             <div class="back-btn" onclick="showSection('home')">← Back</div>
             <h1>Hobbies</h1>
             <div class="hobbies-grid">
-                <div class="hobby-card"><strong>Reading</strong>Founder/Host of ‘Baby Blue Book Club’... more than 30 members and 400 followers on Instagram.</div>
-                <div class="hobby-card"><strong>Workout & Sports</strong>Hiking (as permits) & Yoga (Regularly)</div>
+                <div class="hobby-card"><strong>Reading</strong>Founder/Host of ‘Baby Blue Book Club’, a non-traditional book club where members meet on a decided Sunday evening to discuss books, reading habits and recommendations on Google hangout, post on instagram to increase visibility, reading list and marketing which started with 2 members and currently it has more than 30 members in 3 years and over 400 followers on Instagram.</div>
+                <div class="hobby-card"><strong>Workout & Sports</strong>Hiking (as and when time permits) & Yoga (Regularly)</div>
                 <div class="hobby-card"><strong>Cooking</strong>Cooking Indo-Chinese dishes in my leisure</div>
-                <div class="hobby-card"><strong>Blogging</strong>Financial Blogging on Medium & Fashion/Literature blogging on Substack</div>
+                <div class="hobby-card"><strong>Blogging</strong>Financial Blogging on Medium & Fashion and Literature blogging on Instagram and Substack</div>
                 <div class="hobby-card"><strong>Entertainment</strong>Watching Sitcoms, Crime Thrillers and Horror movies</div>
-                <div class="hobby-card"><strong>Writing</strong>Aspiring Novelist, writing a YA Fantasy</div>
+                <div class="hobby-card"><strong>Writing</strong>Aspiring Novelist, writing a Young Adult (YA) Fantasy</div>
             </div>
         </section>
 
