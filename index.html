@@ -98,6 +98,7 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
+        /* Hobbies Grid (12pt) */
         .hobbies-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -114,17 +115,16 @@
         }
         .hobby-card strong { color: var(--dark-sage); display: block; margin-bottom: 8px; font-size: 1.2rem; }
 
-        .featured-link {
-            display: block;
-            color: var(--accent-sage);
-            font-weight: 600;
-            text-decoration: underline;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+        .styled-list li { margin-bottom: 12px; position: relative; padding-left: 30px; list-style: none; }
+        .styled-list li::before { 
+            content: "\f058"; font-family: "Font Awesome 5 Free"; font-weight: 900; 
+            position: absolute; left: 0; color: var(--accent-sage); 
         }
-        .featured-link:hover { color: var(--dark-sage); }
 
         .back-btn { cursor: pointer; color: var(--accent-sage); font-weight: 700; margin-bottom: 20px; display: inline-block; }
+        
+        a.link-text { color: var(--accent-sage); text-decoration: underline; word-break: break-all; }
+        a.link-text:hover { color: var(--dark-sage); }
     </style>
 </head>
 <body>
@@ -173,19 +173,19 @@
                 <strong>Location:</strong> Bengaluru, Karnataka, India<br>
                 <strong>Experience:</strong> 7 years, 1 month
             </div>
-            <div class="content-card">
-                <strong>Financial Analyst - Sector Business Finance Manager (Jun 2018- Jun 2025)</strong><br><br>
-                Partnered with Senior Leaders in the APMEA SMU (Asia Pacific, Middle East, ANZ Strategic Marketing Unit) to provide financial oversight and guidance for a government sector portfolio,ensuring compliance, efficiency, and profitability.<br>
-                Led end-to-end cash flow forecasting and budgeting for complex APMEA public sector accounts, correcting forecast variances across 2 consecutive quarters and restoring CFO confidence in outlook accuracy through strengthened controls and scenario modeling.<br>
-                Partnered with Operations, Sales, Delivery and Investment team to proactively identify high-risk government customers, including collaboration with anti-corruption task force inputs, reducing forecast volatility and preventing revenue exposure on sensitive PSU deals by >30%.<br>
-                Designed and executed revised billing and payout structures for a 5-year Tamil Nadu Treasury renewal, introducing milestone-based invoicing and staggered vendor payouts across 20+ suppliers, eliminating negative cash-flow months while securing contract renewal.<br>
-                Monitored cost structures, unit economics for state-wide rollouts linking milestone based billing & vendor payout terms to project CAPEX.<br>
-                Resolved 7+ months of overdue receivables for Telangana State account through targeted stakeholder engagement and sales partnership, accelerating collections without relationship escalation and creating opportunity for upfront-payment renewal terms.<br>
-                Integrated multi-source financial, operational, and risk data into clear executive narratives, enabling leadership decision-making through concise storytelling, variance drivers, and actionable recommendations during monthly and quarterly reviews.<br>
-                Collaborated across global stakeholders (US, UK, Europe, ME, Russia) to standardize financial processes and reporting using SOPs and automation tools, improving cross-region forecast consistency and reducing rework by ~25%.<br>
-                Applied advanced financial modeling and scenario analysis to public-sector and SMB deals, aligning pricing, investment decisions, and risk appetite with corporate strategy while supporting sustainable growth across regulated markets.<br>
-                Led a team of 4 financial analysts, fostering high performance and career growth.
-            </div>
+            <h3>Financial Analyst - Sector Business Finance Manager (Jun 2018- Jun 2025)</h3>
+            <ul class="styled-list">
+                <li>Partnered with Senior Leaders in the APMEA SMU (Asia Pacific, Middle East, ANZ Strategic Marketing Unit) to provide financial oversight and guidance for a government sector portfolio,ensuring compliance, efficiency, and profitability.</li>
+                <li>Led end-to-end cash flow forecasting and budgeting for complex APMEA public sector accounts, correcting forecast variances across 2 consecutive quarters and restoring CFO confidence in outlook accuracy through strengthened controls and scenario modeling.</li>
+                <li>Partnered with Operations, Sales, Delivery and Investment team to proactively identify high-risk government customers, including collaboration with anti-corruption task force inputs, reducing forecast volatility and preventing revenue exposure on sensitive PSU deals by >30%.</li>
+                <li>Designed and executed revised billing and payout structures for a 5-year Tamil Nadu Treasury renewal, introducing milestone-based invoicing and staggered vendor payouts across 20+ suppliers, eliminating negative cash-flow months while securing contract renewal.</li>
+                <li>Monitored cost structures, unit economics for state-wide rollouts linking milestone based billing & vendor payout terms to project CAPEX.</li>
+                <li>Resolved 7+ months of overdue receivables for Telangana State account through targeted stakeholder engagement and sales partnership, accelerating collections without relationship escalation and creating opportunity for upfront-payment renewal terms.</li>
+                <li>Integrated multi-source financial, operational, and risk data into clear executive narratives, enabling leadership decision-making through concise storytelling, variance drivers, and actionable recommendations during monthly and quarterly reviews.</li>
+                <li>Collaborated across global stakeholders (US, UK, Europe, ME, Russia) to standardize financial processes and reporting using SOPs and automation tools, improving cross-region forecast consistency and reducing rework by ~25%.</li>
+                <li>Applied advanced financial modeling and scenario analysis to public-sector and SMB deals, aligning pricing, investment decisions, and risk appetite with corporate strategy while supporting sustainable growth across regulated markets.</li>
+                <li>Led a team of 4 financial analysts, fostering high performance and career growth.</li>
+            </ul>
         </section>
 
         <section id="education" class="section">
@@ -204,12 +204,7 @@
                 2013 – 2016<br>
                 Grade: 3.28/4 GPA, Rank 1 in Statistics, First Class Honours With Distinction, Summa Cum Laude<br><br>
                 Activities and societies: Member of Students Union and Anchor at Economic Seminars and Conventions<br><br>
-                Studied Micro Economics, Macro Economics (1st Year)<br>
-                Statistics (2nd Year)<br>
-                International Trade, Mathematical Economics (3rd Year)<br>
-                Seminar Project on Foreign Direct Investments in India<br>
-                Bachelor's thesis in Income Inequality<br>
-                First Class Honours With Distinction, Summa Cum Laude
+                Studied Micro Economics, Macro Economics (1st Year), Statistics (2nd Year), International Trade, Mathematical Economics (3rd Year). Seminar Project on Foreign Direct Investments in India. Bachelor's thesis in Income Inequality.
             </div>
         </section>
 
@@ -230,15 +225,15 @@
             <div class="back-btn" onclick="showSection('home')">← Back</div>
             <h1>Awards & Recognitions</h1>
             <div class="content-card">
-                <strong>Honour Badge (Jun 2022)</strong><br>
+                <strong>Honour Badge - Issued by Wipro Limited (Jun 2022)</strong><br>
                 Awarded internally for collaboration in O2C activities across sectors under Americas 2 Strategic Marketing Unit.
             </div>
             <div class="content-card">
-                <strong>Habit Flagbearer (Jan 2022)</strong><br>
+                <strong>Habit Flagbearer - Issued by Wipro Limited (Jan 2022)</strong><br>
                 Awarded for ImpactPlayer, Achiever, Thinker traits in securing Healthcare vertical targets in Invoicing.
             </div>
             <div class="content-card">
-                <strong>Inspiring Performance (Sep 2021)</strong><br>
+                <strong>Inspiring Performance - Issued by Wipro Limited (Sep 2021)</strong><br>
                 Awarded for ExtraMile, TeamPlayer, OverTheTop traits in managing stakeholders.
             </div>
         </section>
@@ -252,19 +247,19 @@
                 Data Analysis: Power BI/Power Pivot, Power Query<br>
                 ERP Systems: SAP, Workday, Netsuite<br>
                 CRM Tools: Salesforce, Informatica, Dynamics 365<br>
-                Financial Modelling: Three-statement models, revenue forecasting, working capital optimization<br>
+                Financial Modelling: Three-statement models, revenue forecasting based on existing/new customers, and headcount planning, often targeting areas like working capital optimization (ARR, MRR, churn, EAC, retention, renewals, lifetime value)<br>
                 Pre-sales Tools: Wipro In-house QDPS, QTrace<br>
-                GRC/Change Management: ServiceNow, Jira, Confluence<br>
+                GRC and change management platforms: ServiceNow, Jira, Confluence<br>
                 FP&A Tools: Anaplan, Wipro HOLMES, Netsuite F&A BPaaS<br>
                 Advanced Trainings: Generative AI Level 1 and 2 cleared
             </div>
             <div class="content-card">
-                <strong>CORE COMPETENCIES</strong><br>
-                Financial Analysis, Reporting, Budget & Forecasting, Strategic Planning, Cash Flow Management, P&L Management, Investment Analysis, Stakeholder Engagement, Corporate Governance.
+                <strong>Core Competencies</strong><br>
+                Financial Analysis, Financial Reporting, Budget & Forecasting, Financial Planning, Strategic Planning, Cash Flow Management, Financial Modeling, P&L Management, Investment Analysis, Stakeholder Engagement, Corporate Governance, Financial Policy Development, Cross-Functional Collaboration.
             </div>
             <div class="content-card">
                 <strong>Soft Skills</strong><br>
-                IFRS, GAAP (US, UK & NL), SOX, COSO, Group Reporting, Technical Accounting (Closing and Accruals).
+                IFRS, GAAP : US, UK & NL, SOX, COSO, Group Reporting & Consolidation Basics, Technical Accounting : Closing and Accruals.
             </div>
         </section>
 
@@ -272,12 +267,8 @@
             <div class="back-btn" onclick="showSection('home')">← Back</div>
             <h1>Featured</h1>
             <div class="content-card">
-                <a href="https://medium.com/vauld/banks-using-the-one-technology-that-should-disrupt-them-blockchain-371af586fa62" target="_blank" class="featured-link">
-                    Blockchain in Banking: Disruptive Technology Insights
-                </a>
-                <a href="https://medium.com/vauld/why-is-the-tether-preferred-over-us-dollars-5e5f818f6aa9" target="_blank" class="featured-link">
-                    Market Dynamics: Why Tether is Preferred Over US Dollars
-                </a>
+                <p><a href="https://medium.com/vauld/banks-using-the-one-technology-that-should-disrupt-them-blockchain-371af586fa62" target="_blank" class="link-text">https://medium.com/vauld/banks-using-the-one-technology-that-should-disrupt-them-blockchain-371af586fa62</a></p>
+                <p><a href="https://medium.com/vauld/why-is-the-tether-preferred-over-us-dollars-5e5f818f6aa9" target="_blank" class="link-text">https://medium.com/vauld/why-is-the-tether-preferred-over-us-dollars-5e5f818f6aa9</a></p>
             </div>
         </section>
 
@@ -285,12 +276,12 @@
             <div class="back-btn" onclick="showSection('home')">← Back</div>
             <h1>Hobbies</h1>
             <div class="hobbies-grid">
-                <div class="hobby-card"><strong>Reading</strong>Founder/Host of ‘Baby Blue Book Club’... over 400 followers on Instagram.</div>
+                <div class="hobby-card"><strong>Reading</strong>Founder/Host of ‘Baby Blue Book Club’, a non-traditional book club where members meet on a decided Sunday evening to discuss books, reading habits and recommendations on Google hangout, post on instagram to increase visibility, reading list and marketing which started with 2 members and currently it has more than 30 members in 3 years and over 400 followers on Instagram.</div>
                 <div class="hobby-card"><strong>Workout & Sports</strong>Hiking (as and when time permits) & Yoga (Regularly)</div>
                 <div class="hobby-card"><strong>Cooking</strong>Cooking Indo-Chinese dishes in my leisure</div>
-                <div class="hobby-card"><strong>Blogging</strong>Financial Blogging on Medium & Fashion and Literature blogging</div>
+                <div class="hobby-card"><strong>Blogging</strong>Financial Blogging on Medium & Fashion and Literature blogging on Instagram and Substack</div>
                 <div class="hobby-card"><strong>Entertainment</strong>Watching Sitcoms, Crime Thrillers and Horror movies</div>
-                <div class="hobby-card"><strong>Writing</strong>Aspiring Novelist, writing a YA Fantasy</div>
+                <div class="hobby-card"><strong>Writing</strong>Aspiring Novelist, writing a Young Adult (YA) Fantasy</div>
             </div>
         </section>
 
@@ -299,8 +290,8 @@
             <h1>Contact</h1>
             <div class="content-card">
                 <p><strong>Email :</strong> ankita.swain10@outlook.com</p>
-                <p><strong>Instagram:</strong> @ankyysbooks</p>
-                <p><strong>Facebook:</strong> <a href="https://www.facebook.com/ankita.swain.5/" target="_blank">View Profile</a></p>
+                <p><strong>Instagram:</strong> <a href="https://www.instagram.com/ankyysbooks" target="_blank" class="link-text">https://www.instagram.com/ankyysbooks</a></p>
+                <p><strong>Facebook:</strong> <a href="https://www.facebook.com/ankita.swain.5/" target="_blank" class="link-text">https://www.facebook.com/ankita.swain.5/</a></p>
             </div>
         </section>
     </main>
